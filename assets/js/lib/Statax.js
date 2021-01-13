@@ -5,9 +5,9 @@
     haghish@imbi.uni-freiburg.de
     for documentation visit http://www.haghish.com/statax
 
-    This file loads sh_main.js, stataxsource.js, and Statax.css files and also 
-    highlight syntax of Global Macros in Stata. 
- */ 
+    This file loads sh_main.js, stataxsource.js, and Statax.css files and also
+    highlight syntax of Global Macros in Stata.
+ */
 
 
 
@@ -22,12 +22,12 @@ function include(filename, onload) {
     script.onload = script.onreadystatechange = function() {
         if (script.readyState) {
             if (script.readyState === 'complete' || script.readyState === 'loaded') {
-                script.onreadystatechange = null;                                                  
+                script.onreadystatechange = null;
                 onload();
             }
-        } 
+        }
         else {
-            onload();          
+            onload();
         }
     };
     head.appendChild(script);
@@ -51,11 +51,11 @@ include('https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', fun
 //********************************************************
 
 var imported = document.createElement('script');
-imported.src = 'http://haghish.com/statax/StataxSource.js';
+imported.src = 'https://haghish.com/statax/StataxSource.js';
 document.head.appendChild(imported);
 
 var imported2 = document.createElement('script');
-imported2.src = 'http://haghish.com/statax/sh_main.js';
+imported2.src = 'https://haghish.com/statax/sh_main.js';
 document.head.appendChild(imported2);
 
 
@@ -70,7 +70,7 @@ if (!document.getElementById(cssId))
     link.id   = cssId;
     link.rel  = 'stylesheet';
     link.type = 'text/css';
-    link.href = 'http://haghish.com/statax/Statax.css';
+    link.href = 'https://haghish.com/statax/Statax.css';
     link.media = 'all';
     head.appendChild(link);
 
@@ -78,10 +78,10 @@ if (!document.getElementById(cssId))
 //********************************************************
 //* AUTOMATICALLY RUN SCRIPT
 //********************************************************
-window.onload = function() 
-    { 
+window.onload = function()
+    {
         sh_highlightDocument();
-    }; 
+    };
 
 
 
