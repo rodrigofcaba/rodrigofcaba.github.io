@@ -21,10 +21,18 @@ $(document).test
 A ver qué tal se ven estos output de STATA:
 
 ```stata
-. sysuse auto
-no; data in memory would be lost
-r(4);
-//comentario en Stata
+***********
+* Author: Rodrigo Fernández Caba
+* Date: October 9, 2020
+* Project: States, regimes & Institutions – Assignment 3
+**********
+
+clear all
+set more off
+
+cd "C:\Users\Rodrigo\Desktop\UC3M\Máster\First semester\States, Regimes and Institutions\Week 1\Country_Year_V-Dem_Full+others_STATA_v10"
+use  V-Dem-CY-Full+Others-v10
+
 ```
 
 
