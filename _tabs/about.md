@@ -1,5 +1,5 @@
 ---
-title: About
+title: Sobre mí
 icon: fas fa-info
 order: 4
 
