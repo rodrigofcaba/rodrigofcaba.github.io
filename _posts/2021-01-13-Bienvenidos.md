@@ -20,7 +20,7 @@ $(document).test
 ```
 A ver qué tal se ven estos output de STATA:
 
-```output
+```stata
 . sysuse auto
 no; data in memory would be lost
 r(4);
