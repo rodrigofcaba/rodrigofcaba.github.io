@@ -16,8 +16,9 @@ script:
   - eval "$BUILD_CMD"
 
 branches:
-  only: production
-
+  only:
+  - gh-pages
+  - /.*/
 git:
   depth: false # for posts lastmod
 
