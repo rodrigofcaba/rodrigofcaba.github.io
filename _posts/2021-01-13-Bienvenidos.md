@@ -1,14 +1,14 @@
 ---
 title: Bienvenidos al curso de Evolución y Teoría del Estado
-date: 2021-01-13
+date: 2021-01-13 20:45
 categories: [Evolución y Teoría del Estado]
-tags: [stata]     # TAG names should always be lowercase
+tags: [bienvenida]     # TAG names should always be lowercase
 mermaid: true
 image: /assets/img/posts/leviatan.jpg
 pin: true
 ---
 
-¡Bienvenidos!
+## ¡Bienvenidos!
 
 En este blog encontraréis todo el material que veamos en clase así como algún material complementario especialmente con sintaxis de STATA. La idea principal es que podáis acudir a esta página a consultar cualquier duda que tengáis. Además, habrá distintas entradas explicando los conceptos que usaremos en los ejemplos de clase.
 
@@ -39,5 +39,5 @@ La parte que más suele interesar a la mayoría. Permitidme que os diga que no e
 
 El trabajo consiste en que leáis algo de literatura académica sobre el Estado y **formuléis al menos una hipótesis científica**. A continuación, tendréis que **testar dicha hipótesis**, es decir, someterla a prueba empírica. Vuestra tarea entonces es conseguir los datos que creéis necesarios para testar vuestra hipótesis y aplicar algun contraste de hipótesis sencillo de los que veamos en clase.
 
-> **Podéis realizar este trabajo individualmente o en grupos de 2 o 3 personas (máximo)**
+> Podéis realizar este trabajo **individualmente o en grupos de 2 o 3 personas** (máximo)
 
