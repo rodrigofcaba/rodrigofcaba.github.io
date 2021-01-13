@@ -12,7 +12,7 @@ pin: true
 
 En este blog encontraréis todo el material que veamos en clase así como algún material complementario especialmente con sintaxis de STATA. La idea principal es que podáis acudir a esta página a consultar cualquier duda que tengáis. Además, habrá distintas entradas explicando los conceptos que usaremos en los ejemplos de clase.
 
-![I'm looking for data this big](/assets/img/posts/Bws7vMhIIAAFK9R.jpg){: width="200"}
+![I'm looking for data this big](/assets/img/posts/Bws7vMhIIAAFK9R.jpg){: width="400"}
 
 ## ¿Qué esperar de este curso?
 
