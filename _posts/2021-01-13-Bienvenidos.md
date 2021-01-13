@@ -20,7 +20,7 @@ $(document).test
 ```
 A ver qué tal se ven estos output de STATA:
 
-```stata
+<pre class="sh_stata">
 ***********
 * Author: Rodrigo Fernández Caba
 * Date: October 9, 2020
@@ -32,7 +32,5 @@ set more off
 
 cd "C:\Users\Rodrigo\Desktop\UC3M\Máster\First semester\States, Regimes and Institutions\Week 1\Country_Year_V-Dem_Full+others_STATA_v10"
 use  V-Dem-CY-Full+Others-v10
-
-```
-
+</pre>
 
