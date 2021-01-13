@@ -7,11 +7,11 @@
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # --------------------------
-title: Rodrigo F                        # the main title
+title: Rodrigo Fernández                        # the main title
 
-tagline: A text-focused Jekyll theme   # it will display as the sub-title
+tagline: MA in Social Sciences Student   # it will display as the sub-title
 
-description: >-                        # used by seo meta and the atom feed
+description: >                   # used by seo meta and the atom feed
   A minimal, portfolio, sidebar,
   bootstrap Jekyll theme with responsive web design
   and focuses on text presentation.
@@ -19,21 +19,21 @@ description: >-                        # used by seo meta and the atom feed
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://rodrigofcaba.github.io'
 
-author: your_full_name                  # change to your full name
+author: Rodrigo Fernández Caba                  # change to your full name
 
 github:
-  username: github_username             # change to your github username
+  username: rodrigofcaba             # change to your github username
 
 twitter:
-  username: twitter_username            # change to your twitter username
+  username: rodfcaba           # change to your twitter username
 
 social:
-  name: your_full_name                  # it will shows as the copyright owner in Footer
-  email: example@doamin.com             # change to your email address
+  name: Rodrigo Fernández Caba                  # it will shows as the copyright owner in Footer
+  email: rodferna@clio.uc3m.es             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username      # change to your twitter homepage
-    - https://github.com/username       # change to your github homepage
+    - https://twitter.com/rodfcaba      # change to your twitter homepage
+    - https://github.com/rodrigofcaba       # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
@@ -47,7 +47,7 @@ google_site_verification: google_meta_tag_verification # change to your verifica
 baseurl: ''
 
 # Change to your timezone › http://www.timezoneconverter.com/cgi-bin/findzone/findzone
-timezone: Asia/Shanghai
+timezone: Europe/Madrid
 
 google_analytics:
   id: ''          # Fill with your Google Analytics ID
@@ -87,7 +87,7 @@ theme_mode:   # [light|dark]
 img_cdn: ''
 
 # the avatar on sidebar, support local or CORS resources
-avatar: https://cdn.jsdelivr.net/gh/cotes2020/chirpy-images/commons/avatar.jpg
+avatar: https://avatars3.githubusercontent.com/u/68204617?s=460&u=5c77dd8d5533d87482f898a7cf76b8b9e8571c57&v=4
 
 # boolean type, the global switch for ToC in posts.
 toc: true
