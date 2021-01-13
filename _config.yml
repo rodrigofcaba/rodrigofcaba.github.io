@@ -11,7 +11,7 @@ title: Rodrigo Fernández                        # the main title
 
 tagline: MA in Social Sciences Student   # it will display as the sub-title
 
-description: >                   # used by seo meta and the atom feed
+description: >-                  # used by seo meta and the atom feed
   A minimal, portfolio, sidebar,
   bootstrap Jekyll theme with responsive web design
   and focuses on text presentation.
@@ -77,7 +77,7 @@ disqus:
 #
 #     dark   - Use the dark color scheme
 #
-theme_mode:   # [light|dark]
+theme_mode: light
 
 # The CDN endpoint for images.
 # Notice that once it is assigned, the CDN url
