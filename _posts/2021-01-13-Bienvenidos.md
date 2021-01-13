@@ -15,8 +15,8 @@ Bienvenidos. En este blog encontraréis todo el material que vemos en clase así
 
 ## Imaginemos que aquí va un snippet the stata:
 
-```
-cd "C:\users..."
+```js
+$(document).test
 ```
 A ver qué tal se ven estos output de STATA:
 
@@ -24,6 +24,7 @@ A ver qué tal se ven estos output de STATA:
 . sysuse auto
 no; data in memory would be lost
 r(4);
+//comentario en Stata
 ```
 
 
