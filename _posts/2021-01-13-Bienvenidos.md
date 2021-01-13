@@ -27,7 +27,7 @@ No pretendo que sepáis todo lo que se puede hacer con los datos, ni todos los c
 
 ## ¿Cómo serán las clases?
 
-En principio las clases consistirán en clases eminentemente prácticas (seminarios), en las que os enseñaré a utilizar STATA y veremos ejemplos reales que os puedan servir para entender mejor lo que Ignacio os cuenta en las clases magistrales. Yo haré el trabajo duro al principio en el ordenador en directo, para que podáis ver el flujo de trabajo con el programa y después, os tocará a vosotros practicar. La idea es que desde el principio tratéis de perder el miedo y trateis de replicar lo que haga yo. Cualquier duda que os surja, sólo tenéis que decírmela.
+En principio las clases consistirán en clases eminentemente prácticas (seminarios), en las que aprenderéis a utilizar STATA y veremos ejemplos reales que os puedan servir para entender mejor lo que Ignacio os cuenta en las clases magistrales. Yo haré el trabajo duro al principio en el ordenador en directo, para que podáis ver el flujo de trabajo con el programa y después, os tocará a vosotros practicar. La idea es que desde el principio perdáis el miedo y tratéis de replicar lo que haga yo. Cualquier duda que os surja, sólo tenéis que pregunrarla.
 
 
 
