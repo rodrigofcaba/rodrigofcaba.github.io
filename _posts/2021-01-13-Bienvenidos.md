@@ -4,9 +4,9 @@ date: 2021-01-13
 categories: [Evolución y Teoría del Estado]
 tags: [stata]     # TAG names should always be lowercase
 mermaid: true
-image: /assets/img/eg.png
+image: /assets/img/eg.PNG
 pin: true
-# has-code: true
+has-code: true
 ---
 
 Bienvenidos. En este blog encontraréis todo el material que vemos en clase así como algún material complementario especialmente con sintaxis de STATA. La idea principal es que podáis acudir a esta página a consultar cualquier duda que tengáis. Además, habrá distintas entradas explicando los distintos conceptos que usaremos en los ejemplos de clase.

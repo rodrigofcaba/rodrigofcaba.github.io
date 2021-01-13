@@ -97,7 +97,7 @@ paginate: 10
 kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:   # Rouge Options › https://github.com/jneen/rouge#full-options
-    # disable : true
+    disable : true
     css_class: highlight
     # default_lang: console
     span:
