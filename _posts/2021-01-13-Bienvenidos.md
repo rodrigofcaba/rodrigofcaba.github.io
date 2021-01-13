@@ -16,11 +16,13 @@ En este blog encontraréis todo el material que veamos en clase así como algún
 
 ## ¿Qué esperar de este curso?
 
+<p style="text-align: justify;">
 Mi objetivo principalmente es que entendáis por qué puede ser util trabajar con **datos**. Pero también qué maneras hay de usar los datos y cómo hacer análisis de la realidad de caracter empírico. Para ello lo primordial es que os familiaricéis con el software que vamos a utilizar durante el curso, **STATA**.
 
 STATA es un potente paquete estadístico que os ayudará a realizar los cálculos que a mano sería muy costoso hacer. Como podréis imaginar, no es el único. Hay muchas otros programas para trabajar con datos (SPSS, SAS, R, Python...). Sin embargo, STATA es, posiblmenete, el más intuitivo y sencillo para empezar. Quizás algunos penséis al principio que todo es incomprensible, especialmente si nunca habéis trabajado con datos. Pero pronto veréis como es más fácil de lo que parece.
 
 Al final del curso, deberíais ser capaces de saber buscar datos en lugares adecuados, manejar esos datos (limpiarlos, ordenarlos, explotarlos, y presentarlos) y, lo más importante, **extraer conclusiones de ellos** que os sirvan para entender mejor la realidad.
+</p>
 
 ## ¿Qué no esperar de este curso?
 
@@ -37,7 +39,9 @@ La parte que más suele interesar a la mayoría. Permitidme que os diga que no e
 
 ### ¿En qué consiste el trabajo final?
 
-El trabajo consiste en que leáis algo de literatura académica sobre el Estado y **formuléis al menos una hipótesis científica**. A continuación, tendréis que **testar dicha hipótesis**, es decir, someterla a prueba empírica. Vuestra tarea entonces es conseguir los datos que creéis necesarios para testar vuestra hipótesis y aplicar algun contraste de hipótesis sencillo de los que veamos en clase.
+El trabajo consiste en que leáis algo de literatura académica sobre el Estado (aprenderemos dónde buscarla) y **formuléis al menos una hipótesis científica**. A continuación, tendréis que **testar dicha hipótesis**, es decir, someterla a prueba empírica. Vuestra tarea entonces es conseguir los datos que creéis necesarios para testar vuestra hipótesis y aplicar algun contraste de hipótesis sencillo de los que veamos en clase.
 
-> Podéis realizar este trabajo **individualmente o en grupos de 2 o 3 personas** (máximo)
+> Podéis realizar este trabajo **individualmente** o en **grupos de 2 o 3 personas** (máximo)
 
+
+Y eso sería todo por este post. Estoy deseando empezar el curso y espero que aprendáis lo máximo posible. Por descontado, cualquier duda que podáis tener podéis preguntármela en clase o, si lo preferís, mandarme un email a [rodrigofcaba@clio.uc3m.es](mailto:rodferna@clio.uc3m.es)

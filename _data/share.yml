@@ -6,7 +6,7 @@
 #  © 2020 Cotes Chung
 #  MIT Licensed
 
-label: "Share"
+label: "Comparte"
 
 platforms:
   -
@@ -17,10 +17,10 @@ platforms:
     type: Facebook
     icon: "fab fa-facebook-square"
     link: "https://www.facebook.com/sharer/sharer.php?title=TITLE&u=URL"
-  -
-    type: Telegram
-    icon: "fab fa-telegram"
-    link: "https://telegram.me/share?text=TITLE&url=URL"
+  # -
+  #   type: Telegram
+  #   icon: "fab fa-telegram"
+  #   link: "https://telegram.me/share?text=TITLE&url=URL"
 
   # Uncomment below if you need to.
   # -
