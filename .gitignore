@@ -5,3 +5,4 @@
 # jekyll cache
 _site
 vendor
+*.code-workspace
