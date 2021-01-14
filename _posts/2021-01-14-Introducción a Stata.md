@@ -7,8 +7,6 @@ mermaid: true
 image: /assets/img/posts/sesion1/stata.png
 ---
 
-![test](/assets/img/posts/sesion1/stata.png)
-
 ¡Vamos allá!
 
 En esta primera sesión vamos a ver una introducción a STATA, ¿qué es?, ¿cómo se usa?, etc.
@@ -27,7 +25,12 @@ STATA es muy completo, se pueden hacer desde los cálculos más sencillos como s
 
 <pre class="sh_stata">
 // Suma con STATA:
- display 2+4=6
+ display 2+4
+</pre>
+
+<pre class="sh_stata">
+// Output:
+6
 </pre>
 
 hasta grandes cálculos como modelos de regresión líneal o gran cantidad de gráficos:
@@ -89,9 +92,9 @@ Lo primero que suele escribirse en un do-file (por ser ordenados, simplemente) e
 
 <pre class="sh_stata">
 ******************************************
-*Nombre: Sesión 1. Introducción a Stata
-*Asignatura: Evolución y Teoría del Estado
-*Autor: Rodrigo Fernández
+* Nombre: Sesión 1. Introducción a Stata
+* Asignatura: Evolución y Teoría del Estado
+* Autor: Rodrigo Fernández
 ******************************************
 
 // Código a partir de aquí
@@ -102,7 +105,7 @@ Es totalmente opcional y de hecho, esto no incluye ningún comando que vaya a ej
 Hay varias formas de hacer comentarios en un do-file:
 
 <pre class="sh_stata">
-* Esto es un comentario de una línea
+** Esto es un comentario de una línea
 // Esto también es un comentario de una línea
 
 /*
@@ -117,7 +120,7 @@ Para trabajar con Stata primero hay que decirle al programa cuál será nuestro 
 Para cambiarlo usamos el siguiente comando:
 
 <pre class="sh_stata">
-cd "C:\users\tu_usuario\documents\stata\sesion1" //Para windows
+cd "C:/users/tu_usuario/documents/stata/sesion1" //Para windows
 cd "Users/tu_usuario/Documents/stata/sesion1" // Para sistemas UNIX
 </pre>
 
@@ -142,9 +145,8 @@ Si te fijas, en la ventana de variables han aparecido las variables de QoG y en 
 Pero este post se está haciendo más largo de lo necesario, para terminar con la introducción vamos a ejecutar nuestro primer comando, que sirve para ver en una tabla (como una hoja de cálculo de excel) los datos que Stata ha cargado en memoria:
 
 <pre class="sh_stata">
-// Abre la ventana de visor de datos
-
+// Abre la ventana del visor de datos
 browse
 </pre>
 
-En el siguiente post veremos qué información nos da esta ventana porque lo primero es entender qué tipo de datos existen y cómo los interpreta Stata.
+En el siguiente post veremos qué información nos da esta ventana porque lo primero es entender **qué tipo de datos existen y cómo los interpreta Stata**.
