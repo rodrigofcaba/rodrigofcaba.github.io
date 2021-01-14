@@ -33,7 +33,7 @@ function include(filename, onload) {
     head.appendChild(script);
 }
 
-include('https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', function() {
+include('https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js', function() {
     $(document).ready(function() {
 
         //********************************************************
