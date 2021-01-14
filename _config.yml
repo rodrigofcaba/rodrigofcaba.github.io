@@ -7,14 +7,14 @@
 
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # --------------------------
-title: Rodrigo Fernández                        # the main title
+title: Rodrigo Fernández Caba                      # the main title
 
-tagline: MA in Social Sciences Student   # it will display as the sub-title
+tagline: Universidad Carlos III de Madrid   # it will display as the sub-title
 
 description: >-                  # used by seo meta and the atom feed
-  A minimal, portfolio, sidebar,
-  bootstrap Jekyll theme with responsive web design
-  and focuses on text presentation.
+  Blog con los contenidos de la asignatura
+  Evolución y Teoria del Estado impartida
+  al grupo de Historia y Política de la UC3M.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
 url: 'https://rodrigofcaba.github.io'

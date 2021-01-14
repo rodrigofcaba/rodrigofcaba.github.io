@@ -6,6 +6,7 @@ tags: [bienvenida]     # TAG names should always be lowercase
 mermaid: true
 image: /assets/img/posts/leviatan.jpg
 pin: true
+published: false
 ---
 
 ## ¡Bienvenidos!
