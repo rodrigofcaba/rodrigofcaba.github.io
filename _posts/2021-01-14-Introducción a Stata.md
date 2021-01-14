@@ -48,7 +48,7 @@ Pero vamos a lo que de verdad os interesa. ¡Abramos Stata!
 
 Lo primero que se puede decir de la ventana principal es que tiene en la parte superior (como cualquier programa) la barra de herramientas. En esta barra hay algunos botones que usaremos muy a menudo: el editor de *do-files* y el editor o visor de datos. Por lo demás, nada interesante porque, como decía más arriba, vamos a aprender a usar comandos y no ventanas.
 
-![toolbar](/assets/img/posts/sesion1/Stata1.png)
+![toolbar](/assets/img/posts/sesion1/stata1.png)
 
 El programa se divide en distintas secciones y tiene distintas posibilidades en cuanto a la organización de estas secciones. Por defecto viene configurado de manera que aparecen las cuatro principales:
 
@@ -137,7 +137,7 @@ use nombre_de_la_bd
 
 Ahora, para ejecutar el do-file podemos pinchar en el siguiente botón (run):
 
-![Stata2](/assets/img/posts/sesion1/Stata2.png)
+![Stata2](/assets/img/posts/sesion1/stata2.png)
 
 o, mejor aún, utilizar el atajo de teclado `ctrl+D` en windows o `cmd+D` en mac.
 
