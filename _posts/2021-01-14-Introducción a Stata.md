@@ -11,7 +11,7 @@ image: /assets/img/posts/sesion1/stata.png
 
 En esta primera sesión vamos a ver una introducción a Stata, ¿qué es?, ¿cómo se usa?, etc.
 
-# ¿Qué es Stata?
+## ¿Qué es Stata?
 
 **Stata** es un programa estadístico multiplataforma (es decir, que puede usarse en distintos sistemas operativos: windows, linux, macOS...) creado en 1985. Esto quiere decir que es más moderno que, por ejemplo SAS, SPSS y otros programas que quizás conozcáis. Es intuitivo, rápido y fácil de usar, aunque para operaciones más avanzadas (como el Big Data) puede llegar a ser algo limitado. Además, **no es gratuito**, frente a otras opciones como R o Python, este es, sin lugar a dudas, su mayor punto débil.
 
@@ -20,7 +20,7 @@ Para vosotros esto de momento no es un problema, la Universidad os facilita orde
 Sin embargo, tiene varios puntos a su favor, es **fácil de usar** y desde la versión 11 tiene una GUI (*Grafical User Interface*) que puede ser de utilidad. No obstante, ya os adelanto que en este curso aprenderemos a usar Stata escribiendo código (o más bien, comandos) y no usando la interfaz gráfica de ventanas.
 Pero incluso utilizando comandos, Stata es más sencillo de usar que otras opciones ya que no es un lenguaje de programación como tal. Con unos cuantos comandos puedes hacer muchas cosas y no tienes que preocuparte de saber qué es un vector, o qué es una función. A nivel básico Stata es mucho más accesible que los lenguajes de programación que mencionaba.
 
-# ¿Para qué sirve Stata?
+## ¿Para qué sirve Stata?
 
 Stata es muy completo, se pueden hacer desde los cálculos más sencillos como sumar y restar:
 
@@ -40,7 +40,7 @@ hasta grandes cálculos como modelos de regresión líneal o gran cantidad de gr
 
 Es muy usado en campos como la medicina y las ciencias sociales. En nuestro caso, es ideal para trabajar con bases de datos con registros a nivel individual, de países, etc. Con Stata podemos hacer prácticamente cualquier análisis estadístico que se nos ocurra.
 
-# Estructura de la interfaz gráfica
+## Estructura de la interfaz gráfica
 
 Pero vamos a lo que de verdad os interesa. ¡Abramos Stata!
 
@@ -59,19 +59,19 @@ El programa se divide en distintas secciones y tiene distintas posibilidades en 
 
 >La apariencia de estas ventanas puede cambiarse en `preferencias/opciones gráficas`
 
-## La ventana de Revisión
+### La ventana de Revisión
 
 Es una sección muy útil pues nos permite ver cada comando que se ha ejecutado por parte de Stata. Así podemos volver a ejecutar algo anterior o ver si tenemos algún error (aparecerá en rojo).
 
-## La ventana de Resultados
+### La ventana de Resultados
 
 Es la que miraremos constantemente para ver las "salidas" del programa, es decir, los resultados de las operaciones que le pidamos a través de los distintos comandos.
 
-## La ventana de Comandos
+### La ventana de Comandos
 
 Como su propio nombre indica es la ventana en la que escribiremos los comandos que queramos que Stata ejecute. Sin embargo, veremos que una práctica más recomendable es usar para esto el editor de **Do-files** (que veremos enseguida).
 
-## La ventana de variables
+### La ventana de variables
 
 Y finalmente, la ventana en la que aparecen las variables que contiene nuestra base de datos. Hasta ahora no tenemos ninguna base de datos cargada, luego no tenemos ninguna variable en esta ventana. Así que, carguemos alguna.
 
@@ -83,7 +83,7 @@ Lo primero que debes saber es en qué formato descargarla, para usarla con Stata
 
 Antes de cargar la base de datos en Stata vamos a abrir el editor de Do-files.
 
-# ¿Qué es un Do-file?
+## ¿Qué es un Do-file?
 
 ¿Te imaginas comenzar a pedirle a Stata que haga complejísimos cálculos a través de la ventana de comandos, por ejemplo: que recodifique una variable, que calcule la media, la desviación típica y que luego haga una tabla cruzando los valores con los de otra variable y que cuando termines todas esas instrucciones sólo sirvan una vez? Sería muy tedioso tener que volver a escribir lo mismo cada vez que quieras que Stata haga algo que vas a querer volver a pedirle. Para eso existen los Do-files.
 
