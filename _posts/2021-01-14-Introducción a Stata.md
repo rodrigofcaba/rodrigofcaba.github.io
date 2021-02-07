@@ -77,7 +77,7 @@ Y finalmente, la ventana en la que aparecen las variables que contiene nuestra b
 
 ![qog](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Quality_of_Government_Institute_logo.png/245px-Quality_of_Government_Institute_logo.png)
 
-Lo más interesante para que podamos empezar cuanto antes a familiarizarnos con la base de datos de Quality of Goverment es que la descarguemos de [aquí](https://www.gu.se/en/quality-government/qog-data/data-downloads/standard-dataset).
+Lo más interesante para que podamos empezar cuanto antes a familiarizarnos con la base de datos de *Quality of Goverment* es que la descarguemos de [aquí](https://www.gu.se/en/quality-government/qog-data/data-downloads/standard-dataset).
 
 Lo primero que debes saber es en qué formato descargarla, para usarla con Stata, debe ser el archivo con extensión **.dta**. A partir de ahora ya sabes cuál es la extensión de los archivos que contienen datos para usar directamente en Stata. No obstante, Stata puede leer también archivos CSV y en formato xls (Excel), como veremos más adelante.
 
@@ -127,12 +127,17 @@ cd "C:/users/tu_usuario/documents/Stata/sesion1" //Para windows
 cd "Users/tu_usuario/Documents/Stata/sesion1" // Para sistemas UNIX
 </pre>
 
-Una vez situados donde queremos trabajar (hay que crear antes el directorio si no existe) podemos cargar la base de datos que la descompimiremos en esta ruta.
+Una vez situados donde queremos trabajar (hay que crear antes el directorio si no existe) podemos cargar la base de datos que descompimiremos en esta ruta.
 
 <pre class="sh_Stata">
-// Para cargar una base de datos en formato .dta:
+** También es buena practica que añadáis estas opciones al empezar el do-file:
 
-use nombre_de_la_bd
+clear all // Limpia la memoria RAM antes de empezar
+set more off // Evita la paginación por defecto de Stata, para evitar que se quede parado cuando ejecutes un comando que ocupe mucho en la ventana de resultados.
+
+** Para cargar una base de datos en formato .dta:
+use qog_std_cs_jan20
+
 </pre>
 
 Ahora, para ejecutar el do-file podemos pinchar en el siguiente botón (run):
@@ -147,11 +152,39 @@ Si te fijas, en la ventana de variables han aparecido las variables de QoG y en 
 
 ¡Ya podemos empezar a trabajar!
 
-Pero este post se está haciendo más largo de lo necesario, para terminar con la introducción vamos a ejecutar nuestro primer comando, que sirve para ver en una tabla (como una hoja de cálculo de excel) los datos que Stata ha cargado en memoria:
+Lo primero que es interesante hacer cuando trabajamos con una base de datos es ver cómo es la base de datos, es decir, ver los propios datos. Vamos a ejecutar nuestro primer comando, que sirve para ver en una tabla (como una hoja de cálculo de excel) los datos que Stata ha cargado en memoria:
 
 <pre class="sh_Stata">
 // Abre la ventana del visor de datos
 browse
 </pre>
 
+> Stata carga los datos en la memoria RAM del ordenador para poder trabajar con ellos. Eso quiere decir que hace una copia de los datos que hay en tu disco duro. Aprenderemos a usar estos datos a partir del archivo dta sin sobreescribirlos, así una vez terminemos de trabajar, cerraremos Stata, se vaciará la memoria, pero nuestro archivo original estará intacto.
+
+Esta es la pinta que tiene la base de datos de QoG:
+
+![browser]()
+
+Lo primero que podemos ver es que es una matriz de filas y columnas. Pues bien, las **filas** son las **observaciones** y las **columnas** las **variables**. Eso quiere decir que si la base de datos tiene 1000 observaciones tendremos 1000 filas y cada fila tendrá un valor (o ninguno) para cada columna (variable). Pero, como era de esperar, las variables no son todas iguales porque los datos que guardan las variables son de distinta naturaleza.
+
+No vamos a ver en profundidad los tipos de datos ya que esto corresponde más a un curso de ingenieria de software o ingeniería informática. Pero es importante que sepáis qué tipos básicos de datos existen y por qué Stata los "pinta" de manera distina.
+
+Como veis en el visor de datos hay tres colores.
+
+1. <span style="color:red">Rojo</span>: Son variables de tipo ***string*** o cadena de texto. Es decir, contienen texto plano, no números.
+2. <span style="color:blue">Azul</span>: Son variables **categóricas**, es decir, que representan categorías, por ejemplo: hombre, mujer... Sin embargo, se pintan en azul si tienen asignadas unas etiquetas. **Atención:** el valor almacenado en la variable **NO** es el de la etiqueta en azul, sino un número. Si pinchas sobre uno de los valores podrás ver arriba a qué valor corresponde esa etiqueta.
+3. <span style="color:black">Negro</span>: Pueden ser dos tipos de variables. Las que denominamos **continuas**, es decir, números al uso; y las categóricas que no tienen etiquetas.
+
+Lo bueno de que Stata pinte con colores las variables es que de una manera muy visual podemos saber de qué tipo son y así saber cómo tratarlas. Por ejemplo, no podremos hacer cálculos con una variable que tenga valores en rojo, porque esa variable contiene texto plano y no números. Y, a la inversa, no podremos pedirle a Stata que muestre el texto de una variable que en realidad contiene números. Más adelante, no obstante, veremos con más detalle qué diferencias hay dentro de las variables numéricas y categóricas. Por ahora, me sirve con que entendáis que Stata trata de manera distinta a estos tres tipos principales.
+
+Ahora que tenemos datos cargados en memoria, cerremos esta ventana y empecemos a usar comandos útiles en el *do-file*. Un comando muy útil también a la hora de empezar a trabajar con una base de datos es el siguiente
+
+<pre class="sh_Stata">
+** Nos da información general sobre la base de datos:
+describe
+</pre>
+
+Como véis aparece una lista larguísima con detalles sobre los tipos de datos que contienen las variables, el nombre de éstas el formato, etc.
+
+Empecemos por pedirle a Stata que nos muestre una tabla de frecuencias de la variable
 En el siguiente post veremos qué información nos da esta ventana porque lo primero es entender **qué tipo de datos existen y cómo los interpreta Stata**.
