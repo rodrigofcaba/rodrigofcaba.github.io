@@ -186,5 +186,5 @@ describe
 
 Como véis aparece una lista larguísima con detalles sobre los tipos de datos que contienen las variables, el nombre de éstas el formato, etc.
 
-Empecemos por pedirle a Stata que nos muestre una tabla de frecuencias de la variable
+Empecemos por pedirle a Stata que nos muestre una tabla de frecuencias de la variable.
 En el siguiente post veremos qué información nos da esta ventana porque lo primero es entender **qué tipo de datos existen y cómo los interpreta Stata**.
