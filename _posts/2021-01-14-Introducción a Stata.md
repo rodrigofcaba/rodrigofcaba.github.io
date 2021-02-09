@@ -163,7 +163,7 @@ browse
 
 Esta es la pinta que tiene la base de datos de QoG:
 
-![browser]()
+![Stata3](/assets/img/posts/sesion1/stata3.png)
 
 Lo primero que podemos ver es que es una matriz de filas y columnas. Pues bien, las **filas** son las **observaciones** y las **columnas** las **variables**. Eso quiere decir que si la base de datos tiene 1000 observaciones tendremos 1000 filas y cada fila tendrá un valor (o ninguno) para cada columna (variable). Pero, como era de esperar, las variables no son todas iguales porque los datos que guardan las variables son de distinta naturaleza.
 
