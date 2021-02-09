@@ -77,7 +77,7 @@ Y finalmente, la ventana en la que aparecen las variables que contiene nuestra b
 
 ![qog](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Quality_of_Government_Institute_logo.png/245px-Quality_of_Government_Institute_logo.png)
 
-Lo más interesante para que podamos empezar cuanto antes a familiarizarnos con la base de datos de *Quality of Goverment* es que la descarguemos de [aquí](https://www.gu.se/en/quality-government/qog-data/data-downloads/standard-dataset).
+Lo más interesante para que podamos empezar cuanto antes a familiarizarnos con la base de datos de *Quality of Government* es que la descarguemos de [aquí](https://www.gu.se/en/quality-government/qog-data/data-downloads/standard-dataset).
 
 Lo primero que debes saber es en qué formato descargarla, para usarla con Stata, debe ser el archivo con extensión **.dta**. A partir de ahora ya sabes cuál es la extensión de los archivos que contienen datos para usar directamente en Stata. No obstante, Stata puede leer también archivos CSV y en formato xls (Excel), como veremos más adelante.
 
