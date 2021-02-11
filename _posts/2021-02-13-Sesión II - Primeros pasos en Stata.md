@@ -13,7 +13,7 @@ Para trabajar con datos, el tratamiento de estos suelen seguir un patrón claro:
 1. Primero recopilamos los datos,
 2. Segundo, limpiamos los datos,
 3. Finalmente, interpretamos los datos
-   
+
 Lo primero que querríamos hacer para trabajar de forma cómoda, por tanto, es filtrar la base de datos para quedarnos unicamente con las variables en que estamos interesados. Obviamente, **esto es opcional**, si el ordenador con el que trabajamos tiene memoria suficiente (este suele ser el caso hoy en día), podemos trabajar con toda la base de datos original. En caso de que decidamos filtrar, nuestro objetivo será crear una base de datos **nueva**. Será parcial, es decir, será una parte de la original. Y como será una nueva base de datos, tendremos que guardar un nuevo archivo con extensión .dta. Stata contiene dos comandos que permiten filtrar las bases de datos: `keep` y `drop`.
 
 ## Limpiando los datos
@@ -58,7 +58,19 @@ keep if var1 == value1 //Fíjate en que cuando comparamos (preguntamos), el oper
 </pre>
 
 ## Interpretando los datos
+
 Bien, ahora que tenemos sólo las variables y observaciones que queremos, veamos los dos comandos que probablmente más veces se usan durante una sesión de Stata. Estos son los que nos permiten hacer **tablas de frecuencias**. Estas tablas muestran (si no se pasa ninguna opción al comando) cuántas veces aparece cada valor de una variable en nuestra base de datos.
+
+### ¿Qué es una variable y qué tipos existen?
+
+Pero antes de pedir a Stata nuestra primera tabla, recordemos brevemente qué es una variable y qué tipos de variables existen. En la [sesión anterior](https://rodrigofcaba.github.io/posts/Introducci%C3%B3n-a-Stata/) vimos qué tipos de datos y cómo los clasifica por colores Stata. Pues bien, una variable es “cualquier cualidad o característica de un objeto (o evento) que contenga, al menos, dos atributos (categorías o valores), en los que pueda clasificarse un objeto o evento determinado” (D’Ancona 1996: 126). En general podemos distinguir dos tipos de variables:
+
+- Las que toman **VALORES** numéricos (edad, altura, nivel de ingresos).
+- Las que adoptan **CATEGORÍAS** (sexo, estado civil, voto).
+
+> La **medición** de la variable consiste en el proceso de **asignar valores o categorías** a las distintas características que conforman el objeto de estudio (Pinta, 2020).
+
+
 
 Hagamos una tabla con, por ejemplo, las frecuencias de la variable *gol_est*, que mide el tipo de sistema electoral del Estado. Esta variable es categórica y toma tres valores: mayoritario, proporcional o una mezcla.
 
