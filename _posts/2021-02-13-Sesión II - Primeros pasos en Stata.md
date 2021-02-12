@@ -1,6 +1,6 @@
 ---
 title: Sesión 2. Primeros pasos con Stata
-date: 2021-02-13
+date: 2021-02-12
 categories: [Evolución y Teoría del Estado]
 tags: [stata]     # TAG names should always be lowercase
 mermaid: true
@@ -76,7 +76,7 @@ En general podemos distinguir dos tipos de variables:
 
 ### Clasificación de variables
 
-::: mermaid
+```mermaid
 graph TD
 A[Variables] --> B{Según su nivel de medición};
 A --> C{Según la escala de medición};
@@ -92,7 +92,7 @@ C --> H[Discretas]
 D --> M[Independientes, explicativas o predictoras]
 D --> N[Dependientes o explicadas]
 D --> O[De control]
-:::
+```
 
 Sería muy prolijo entrar aquí en detalles de cada una de ellas, las comentaremos en clase y a lo largo de los ejemplos que veamos en Stata.
 
