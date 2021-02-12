@@ -1,7 +1,6 @@
 ---
 title: Sesión 2. Primeros pasos con Stata
-date: 2021-02-12
-author: test
+date: 2021-02-13
 categories: [Evolución y Teoría del Estado]
 tags: [stata]     # TAG names should always be lowercase
 mermaid: true
