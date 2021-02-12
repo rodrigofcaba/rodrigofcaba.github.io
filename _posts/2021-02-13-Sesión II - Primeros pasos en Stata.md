@@ -9,7 +9,7 @@ image: /assets/img/posts/sesion1/stata.png
 
 Bienvenidos un día más. En la sesión anterior vimos cómo funciona Stata desde la base. Cómo se relaciona con el sistema operativo y cómo cargar una base de datos desde el directorio de trabajo. En esta sesión vamos a empezar a trabajar los datos que vimos la semana pasada, los datos de [Quality of Government](https://www.gu.se/en/quality-government/qog-data).
 
-Para trabajar con datos, el tratamiento de estos suelen seguir un patrón claro:
+Cuando se trabaja con datos, el tratamiento de estos suele seguir un patrón claro:
 1. Primero recopilamos los datos,
 2. Segundo, limpiamos los datos,
 3. Finalmente, interpretamos los datos
@@ -63,14 +63,38 @@ Bien, ahora que tenemos sólo las variables y observaciones que queremos, veamos
 
 ### ¿Qué es una variable y qué tipos existen?
 
-Pero antes de pedir a Stata nuestra primera tabla, recordemos brevemente qué es una variable y qué tipos de variables existen. En la [sesión anterior](https://rodrigofcaba.github.io/posts/Introducci%C3%B3n-a-Stata/) vimos qué tipos de datos y cómo los clasifica por colores Stata. Pues bien, una variable es “cualquier cualidad o característica de un objeto (o evento) que contenga, al menos, dos atributos (categorías o valores), en los que pueda clasificarse un objeto o evento determinado” (D’Ancona 1996: 126). En general podemos distinguir dos tipos de variables:
+Antes de pedir a Stata nuestra primera tabla, recordemos brevemente qué es una variable y qué tipos de variables existen. En la [sesión anterior](https://rodrigofcaba.github.io/posts/Introducci%C3%B3n-a-Stata/) vimos qué tipos de datos y cómo los clasifica por colores Stata. Pues bien, una variable es:
+
+>“cualquier cualidad o característica de un objeto (o evento) que contenga, al menos, dos atributos (categorías o valores), en los que pueda clasificarse un objeto o evento determinado” (D’Ancona 1996: 126). 
+
+En general podemos distinguir dos tipos de variables:
 
 - Las que toman **VALORES** numéricos (edad, altura, nivel de ingresos).
 - Las que adoptan **CATEGORÍAS** (sexo, estado civil, voto).
 
 > La **medición** de la variable consiste en el proceso de **asignar valores o categorías** a las distintas características que conforman el objeto de estudio (Pinta, 2020).
 
+### Clasificación de variables
 
+::: mermaid
+graph TD
+A[Variables] --> B{Según su nivel de medición};
+A --> C{Según la escala de medición};
+A --> D{Según su función en la investigación};
+B --> E[Categóricas]
+E --> I[Nominales]
+E --> J[Ordinales]
+B --> F[Numéricas]
+F --> K[De intervalo]
+F --> L[De razón o proporción]
+C --> G[Continuas]
+C --> H[Discretas]
+D --> M[Independientes, explicativas o predictoras]
+D --> N[Dependientes o explicadas]
+D --> O[De control]
+:::
+
+Sería muy prolijo entrar aquí en detalles de cada una de ellas, las comentaremos en clase y a lo largo de los ejemplos que veamos en Stata.
 
 Hagamos una tabla con, por ejemplo, las frecuencias de la variable *gol_est*, que mide el tipo de sistema electoral del Estado. Esta variable es categórica y toma tres valores: mayoritario, proporcional o una mezcla.
 
@@ -84,3 +108,15 @@ tab gol_est //Hace lo mismo.
 El resultado de este comando sería el siguiente:
 
 Como véis, aparece la frecuencia de cada uno de los valores, es decir, cuántas veces la variable toma cada valor. Por ejemplo, de los 192 países en la muestra, X tienen un sistema presidencialista. Al lado de la frecuencia obtenemos la frecuencia relativa (en porcentaje) y la frecuencia acumulada.
+
+En la tabla aparece el nombre de la variable que es bastante incomprensible. Una buena práctica cuando estamos limpiando los datos consiste en **etiquetar**. En Stata se pueden etiquetar tanto variables como valores (categorías) de las variables. Para ello usamos el comando `label`
+
+
+
+Sin embargo, quizás para vuestro estudio no os interese, pongamos por caso, tener la categoría *mixed*. Quizás queréis comparar sólo aquellos países presidencialistas con aquellos con sistemas parlamentarios. Para eso, hay que recodificar la variable. Es decir, cambiar cómo están codificados sus valores. Para eso usamos el comando `recode`. Tambien usaremos para esto `replace`, veremos la diferencia más adelante.
+
+<pre class="sh_Stata">
+// Recodifica la variable gol_est mandando la categoría mixed a perdidos:
+
+recode gol_est 3 = . 
+</pre>
