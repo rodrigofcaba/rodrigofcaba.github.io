@@ -112,8 +112,7 @@ Como véis, aparece la frecuencia de cada uno de los valores, es decir, cuántas
 En la tabla aparece el nombre de la variable que es bastante incomprensible. Una buena práctica cuando estamos limpiando los datos consiste en **etiquetar**. En Stata se pueden etiquetar tanto variables como valores (categorías) de las variables. Para ello usamos el comando `label`
 
 
-
-Sin embargo, quizás para vuestro estudio no os interese, pongamos por caso, tener la categoría *mixed*. Quizás queréis comparar sólo aquellos países presidencialistas con aquellos con sistemas parlamentarios. Para eso, hay que recodificar la variable. Es decir, cambiar cómo están codificados sus valores. Para eso usamos el comando `recode`. Tambien usaremos para esto `replace`, veremos la diferencia más adelante.
+Sin embargo, quizás para vuestro estudio no os interese --pongamos por caso-- tener la categoría *mixed*. Quizás queréis comparar sólo aquellos países presidencialistas con aquellos con sistemas parlamentarios. Para eso, hay que recodificar la variable. Es decir, cambiar cómo están codificados sus valores. Para eso usamos el comando `recode`. Tambien usaremos para esto `replace`, veremos la diferencia más adelante.
 
 <pre class="sh_Stata">
 // Recodifica la variable gol_est mandando la categoría mixed a perdidos:
