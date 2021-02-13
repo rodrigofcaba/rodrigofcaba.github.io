@@ -115,7 +115,7 @@ collections:
     output: true
     sort_by: order
 
-future: false
+# future: false
 
 
 defaults:

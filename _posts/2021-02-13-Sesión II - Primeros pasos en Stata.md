@@ -1,6 +1,6 @@
 ---
 title: Sesión 2. Primeros pasos con Stata
-date: 2021-02-13
+date: 2021-02-14
 categories: [Evolución y Teoría del Estado]
 tags: [stata]     # TAG names should always be lowercase
 mermaid: true
@@ -68,6 +68,28 @@ En la [sesión anterior](https://rodrigofcaba.github.io/posts/Introducci%C3%B3n-
 
 > La **medición** de la variable consiste en el proceso de **asignar valores o categorías** a las distintas características que conforman el objeto de estudio (Pinta, 2020).
 
+### Clasificación de variables
+
+```mermaid
+graph TD
+A[Variables] --> B{Según su nivel de medición};
+A --> C{Según la escala de medición};
+A --> D{Según su función en la investigación};
+B --> E[Categóricas]
+E --> I[Nominales]
+E --> J[Ordinales]
+B --> F[Numéricas]
+F --> K[De intervalo]
+F --> L[De razón o proporción]
+C --> G[Continuas]
+C --> H[Discretas]
+D --> M[Independientes, explicativas o predictoras]
+D --> N[Dependientes o explicadas]
+D --> O[De control]
+```
+
+Sería muy prolijo entrar aquí en detalles de cada una de ellas, las comentaremos en clase y a lo largo de los ejemplos que veamos en Stata.
+
 Hagamos una tabla con, por ejemplo, las frecuencias de la variable *gol_est*, que mide el tipo de sistema electoral del Estado. Esta variable es categórica y toma tres valores: mayoritario, proporcional o una mezcla.
 
 <pre class="sh_Stata">
@@ -88,4 +110,13 @@ El resultado de este comando sería el siguiente:
 
 Como véis, aparece la frecuencia de cada uno de los valores, es decir, cuántas veces la variable toma cada valor. Por ejemplo, de los 192 países en la muestra, X tienen un sistema presidencialista. Al lado de la frecuencia obtenemos la frecuencia relativa (en porcentaje) y la frecuencia acumulada.
 
-## Interpretando los datos
+En la tabla aparece el nombre de la variable que es bastante incomprensible. Una buena práctica cuando estamos limpiando los datos consiste en **etiquetar**. En Stata se pueden etiquetar tanto variables como valores (categorías) de las variables. Para ello usamos el comando `label`
+
+
+Sin embargo, quizás para vuestro estudio no os interese --pongamos por caso-- tener la categoría *mixed*. Quizás queréis comparar sólo aquellos países presidencialistas con aquellos con sistemas parlamentarios. Para eso, hay que recodificar la variable. Es decir, cambiar cómo están codificados sus valores. Para eso usamos el comando `recode`. Tambien usaremos para esto `replace`, veremos la diferencia más adelante.
+
+<pre class="sh_Stata">
+// Recodifica la variable gol_est mandando la categoría mixed a perdidos:
+
+recode gol_est 3 = .
+</pre>
