@@ -9,22 +9,22 @@ image: /assets/img/posts/sesion1/stata.png
 
 Bienvenidos un día más. En la sesión anterior vimos cómo funciona Stata desde la base. Cómo se relaciona con el sistema operativo y cómo cargar una base de datos desde el directorio de trabajo. En esta sesión vamos a empezar a trabajar los datos que vimos la semana pasada, los datos de [Quality of Government](https://www.gu.se/en/quality-government/qog-data).
 
-Para trabajar con datos, el tratamiento de estos suelen seguir un patrón claro:
-1. Primero recopilamos los datos,
-2. Segundo, limpiamos los datos,
+Para trabajar con datos, el tratamiento de estos suele seguir un patrón claro:
+1. Recopilamos los datos,
+2. Limpiamos los datos,
 3. Finalmente, interpretamos los datos
 
-Lo primero que querríamos hacer para trabajar de forma cómoda, por tanto, es filtrar la base de datos para quedarnos unicamente con las variables en que estamos interesados. Obviamente, **esto es opcional**, si el ordenador con el que trabajamos tiene memoria suficiente (este suele ser el caso hoy en día), podemos trabajar con toda la base de datos original. En caso de que decidamos filtrar, nuestro objetivo será crear una base de datos **nueva**. Será parcial, es decir, será una parte de la original. Y como será una nueva base de datos, tendremos que guardar un nuevo archivo con extensión .dta. Stata contiene dos comandos que permiten filtrar las bases de datos: `keep` y `drop`.
+Lo primero que querríamos hacer para trabajar de forma cómoda, por tanto, es filtrar la base de datos para quedarnos únicamente con las variables en que estamos interesados. Obviamente, **esto es opcional**, si el ordenador con el que trabajamos tiene memoria suficiente (este suele ser el caso hoy en día), podemos trabajar con toda la base de datos original. En caso de que decidamos filtrar, nuestro objetivo será crear una base de datos **nueva**. Será parcial, es decir, será una parte de la original. Y como será una nueva base de datos, tendremos que guardar un nuevo archivo con extensión .dta. Stata contiene dos comandos que permiten filtrar las bases de datos: `keep` y `drop`.
 
 ## Limpiando los datos
 
-Como su propio nombre indica, `keep`[¹] se queda con las variables que le indiquemos y deshecha las demás. Por ejemplo, si sólo quisieramos trabajar con var1 y var2, el comando sería el siguiente:
+Como su propio nombre indica, `keep`[¹] se queda con las variables que le indiquemos y deshecha las demás. Por ejemplo, si sólo quisieramos trabajar con bci_bci y mad_gdppc, el comando sería el siguiente:
 
 
 <pre class="sh_Stata">
-// La nueva base de datos sólo contendrá las variables var1 y var2:
+// La nueva base de datos sólo contendrá las variables bci_bci y mad_gdppc:
 
-keep var1 var2
+keep bci_bci mad_gdppc
 
 // Si queremos guardar la nueva base de datos, utilizamos el comando save:
 
@@ -39,7 +39,7 @@ La otra opción es eliminar aquellas variables con las que no queremos trabajar.
 <pre class="sh_Stata">
 // La nueva base de datos NO contendrá la siguiente variable:
 
-drop var3
+drop version
 
 save "mi nueva base de datos"
 
@@ -47,30 +47,26 @@ save "mi nueva base de datos"
 
 En ambos casos utilizamos el comando `save` para guardar la nueva base de datos. Si no se especifica ninguna extensión, Stata guarda por defecto el archivo en formato .dta, es decir: `mi_nueva_base_de_datos.dta`.
 
-Probablemente te estarás preguntando si no hay una manera más fina de filtrar. En efecto, la hay y es lo que se suele hacer. Esto consiste en filtrar partes de las variables (aunque podríais querer quitar variables enteras). Lo más habitual es que, por ejemplo, sólo quieras trabajar con ciertos valores de una variable. Por ejemplo, sólo con los datos para una región del mundo. Esto también se puede hacer con los comandos `keep` y `drop`. Para ello, simplemente añadimos una condicion con la palabra clave **if**:
+Probablemente te estarás preguntando si no hay una manera más fina de filtrar. En efecto, la hay y es lo que se suele hacer. Esto consiste en filtrar partes de las variables (aunque podríais querer quitar variables enteras). Lo más habitual es que, por ejemplo, sólo quieras trabajar con ciertos valores de una variable. Por ejemplo, sólo con los datos para una región del mundo. Esto también se puede hacer con los comandos `keep` y `drop`. Para ello, simplemente añadimos una condición con la palabra clave **if**:
 
 <pre class="sh_Stata">
 
 // Esto mantiene todas las variables pero sólo mantiene las observaciones que cumplen la condición.
-// Es decir, sólo si los valores de var1 son value1 esas observaciones sobreviven, si no, se eliminan.
+// Es decir, sólo si los valores de ht_region son iguales a 5 esas observaciones sobreviven, si no, se eliminan.
 
-keep if var1 == value1 //Fíjate en que cuando comparamos (preguntamos), el operador son dos iguales (==).
+keep if ht_region == 5 //Fíjate en que cuando comparamos (preguntamos), el operador son dos iguales (==).
 </pre>
 
-## Interpretando los datos
-
-Bien, ahora que tenemos sólo las variables y observaciones que queremos, veamos los dos comandos que probablmente más veces se usan durante una sesión de Stata. Estos son los que nos permiten hacer **tablas de frecuencias**. Estas tablas muestran (si no se pasa ninguna opción al comando) cuántas veces aparece cada valor de una variable en nuestra base de datos.
+Bien, ahora que tenemos sólo las variables y observaciones que queremos, veamos los dos comandos que probablmente más veces se usan durante una sesión de Stata. Estos son los que nos permiten hacer **tablas de frecuencias**. Estas tablas muestran (si no se pasa ninguna opción al comando) cuántas veces aparece cada valor de una variable en nuestra base de datos. Pero antes de pedir a Stata nuestra primera tabla, recordemos brevemente qué es una variable y qué tipos de variables existen.
 
 ### ¿Qué es una variable y qué tipos existen?
 
-Pero antes de pedir a Stata nuestra primera tabla, recordemos brevemente qué es una variable y qué tipos de variables existen. En la [sesión anterior](https://rodrigofcaba.github.io/posts/Introducci%C3%B3n-a-Stata/) vimos qué tipos de datos y cómo los clasifica por colores Stata. Pues bien, una variable es “cualquier cualidad o característica de un objeto (o evento) que contenga, al menos, dos atributos (categorías o valores), en los que pueda clasificarse un objeto o evento determinado” (D’Ancona 1996: 126). En general podemos distinguir dos tipos de variables:
+En la [sesión anterior](https://rodrigofcaba.github.io/posts/Introducci%C3%B3n-a-Stata/) vimos qué tipos de datos y cómo los clasifica por colores Stata. Pues bien, una variable es “cualquier cualidad o característica de un objeto (o evento) que contenga, al menos, dos atributos (categorías o valores), en los que pueda clasificarse un objeto o evento determinado” (D’Ancona 1996: 126). En general podemos distinguir dos tipos de variables:
 
 - Las que toman **VALORES** numéricos (edad, altura, nivel de ingresos).
 - Las que adoptan **CATEGORÍAS** (sexo, estado civil, voto).
 
 > La **medición** de la variable consiste en el proceso de **asignar valores o categorías** a las distintas características que conforman el objeto de estudio (Pinta, 2020).
-
-
 
 Hagamos una tabla con, por ejemplo, las frecuencias de la variable *gol_est*, que mide el tipo de sistema electoral del Estado. Esta variable es categórica y toma tres valores: mayoritario, proporcional o una mezcla.
 
@@ -83,4 +79,13 @@ tab gol_est //Hace lo mismo.
 
 El resultado de este comando sería el siguiente:
 
+| Electoral System Type-3 lasses | Freq. | Percent | Cum.   |
+| ------------------------------ | ----- | ------- | ------ |
+| Majoritarian                   | 50    | 38.76   | 38.76  |
+| Proportional                   | 60    | 46.51   | 85.27  |
+| Mixed                          | 19    | 14.73   | 100.00 |
+| Total                          | 129   | 100.00  |        |
+
 Como véis, aparece la frecuencia de cada uno de los valores, es decir, cuántas veces la variable toma cada valor. Por ejemplo, de los 192 países en la muestra, X tienen un sistema presidencialista. Al lado de la frecuencia obtenemos la frecuencia relativa (en porcentaje) y la frecuencia acumulada.
+
+## Interpretando los datos
