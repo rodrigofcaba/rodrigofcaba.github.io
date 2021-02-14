@@ -241,12 +241,12 @@ tab regiones sis_elec, col row nofreq
 
 Los resultados de estos comandos son distintos, ya que los porcentajes se interpretan de distinta manera en función de si los obtenemos por filas o por columnas. Por ejemplo, en la tabla con porcentajes por columnas:
 
-![columnas](../assets/img/posts/sesion2/porcentajes_columnas.png)
+![columnas](/assets/img/posts/sesion2/porcentajes_columnas.png)
 
 La interpretación sería: del total de países con sistema mayoritario, el 68.75% son países de América Latina o el Caribe y el resto de Europa y Norteamérica.
 Sin embargo, en el caso de los porcentajes por filas:
 
-![filas](../assets/img/posts/sesion2/porcentajes_filas.png)
+![filas](/assets/img/posts/sesion2/porcentajes_filas.png)
 
 La interpretación sería: del total de países de América Latina o el Caribe, el 59.26%  tienen un sistema electoral proporcional, el resto mayoritario, etc.
 
@@ -262,7 +262,7 @@ table regiones, c(mean mad_gdppc sd mad_gdppc n mad_gdppc) format(%9.2f) center
 
 Resultado:
 
-![resumen_stat](../assets/img/posts/sesion2/tabla_stat_resumen.png)
+![resumen_stat](/assets/img/posts/sesion2/tabla_stat_resumen.png)
 
 Un comando que sirve para obtener un resumen estadístico de una variable más sencillo que el comando `table` es el comando `summarize`
 
@@ -276,7 +276,7 @@ sum mad_gdppc, detail // Así además obtenemos la varianza, los percentiles, la
 
 Antes de pasar al siguiente apartado, recuerda lo que has estudiado en Estadística: la distribución normal es simétrica, es decir, tiene un coeficiente de asimetría de 1 y un coeficiente de curtosis de 3. Esta es su representación gráfica:
 
-![normal](../assets/img/posts/sesion2/Normal.png)
+![normal](/assets/img/posts/sesion2/Normal.png)
 
 
 ## Representando los datos
@@ -289,29 +289,30 @@ Para ello, hay que saber ante qué tipo de variable o variables nos encontramos.
 
 #### Descripción y comparación de categorías:
 
-1. **Gráficos de barras:** Indican la media o el porcentaje de cada una de las categorías de una variable. En Stata se usa el comando `graph bar` o `graph hbar` para representarlas en horizontal:
+- **Gráficos de barras:** Indican la media o el porcentaje de cada una de las categorías de una variable. En Stata se usa el comando `graph bar` o `graph hbar` para representarlas en horizontal:
 
 <pre clas="sh_Stata">
 
 graph bar, over(rel_leg) // dentro de la opcion over se indica la variable de agrupación.
 </pre>
 
-![barras](../assets/img/posts/sesion2/bars.png)
-2. **Diagramas de barras apiladas:** Ídem pero con unas barras encima de otras. En stata se añade la opción "Stack" para obtenerlas.
-3. **Diagrama de sectores:** Indican la parte de cada categoría de una variable representando un área (sector) de un círculo.
+![barras](/assets/img/posts/sesion2/bars.png)
+
+- **Diagramas de barras apiladas:** Ídem pero con unas barras encima de otras. En stata se añade la opción "Stack" para obtenerlas.
+- **Diagrama de sectores:** Indican la parte de cada categoría de una variable representando un área (sector) de un círculo.
 
 <pre clas="sh_Stata">
 
 graph pie, over(sis_elec)
 </pre>
 
-![sectores](../assets/img/posts/sesion2/pie.png)
+![sectores](/assets/img/posts/sesion2/pie.png)
 
 ### Variables numéricas:
 
 #### Análisis y comparación de distribuciones:
 
-1. **Histogramas:** Sirven para ver gráficamente la distribución de una variable. En Stata se obtienen con el comando `histogram`:
+- **Histogramas:** Sirven para ver gráficamente la distribución de una variable. En Stata se obtienen con el comando `histogram`:
 
 <pre class ="sh_Stata">
 <ins>hist</ins>ogram mad_gdppc
@@ -321,15 +322,15 @@ graph pie, over(sis_elec)
 hist mad_gdppc, normal
 </pre>
 
-![histograma](../assets/img/posts/sesion2/histogram.png)
+![histograma](/assets/img/posts/sesion2/histogram.png)
 
-2. **Diagramas de caja y bigotes:** Como los histogramas, nos informan de la distribución de la variable con alguna información extra, en Stata se obtienen con el comando `graph box`:
+- **Diagramas de caja y bigotes:** Como los histogramas, nos informan de la distribución de la variable con alguna información extra, en Stata se obtienen con el comando `graph box`:
 
 <pre class ="sh_Stata">
 graph box mad_gdppc
 </pre>
 
-![caja y bigotes](../assets/img/posts/sesion2/box.png)
+![caja y bigotes](/assets/img/posts/sesion2/box.png)
 
 
 #### Distribución conjunta de dos variables:
@@ -340,9 +341,9 @@ Para ver la distribución conjunta de dos variables usamos diagramas de puntos o
 twoway (scatter cspf_sfi mad_gdppc) //Diagrama de puntos entre el índice de fragilidad del estado y el PIB per cápita.
 </pre>
 
-![diagrama de dsipersión](../assets/img/posts/sesion2/scatter.png)
+![diagrama de dsipersión](/assets/img/posts/sesion2/scatter.png)
 
-No parece una relación muy lineal...
+No parece una relación muy lineal.
 
 ¿Recuerdas que la variable del PIB no parecía seguir una distribución normal? Es habitual en Ciencias Sociales hacer transformaciones a las variables, una de las más usadas es la **transformación logarítimca**:
 
@@ -355,7 +356,7 @@ hist lnmad_gdppc, normal // Ahora la distribución es mucho más normal
 
 </pre>
 
-![histograma normal](../assets/img/posts/sesion2/histnorm.png)
+![histograma normal](/assets/img/posts/sesion2/histnorm.png)
 
 <pre class="sh_Stata">
 
@@ -363,7 +364,7 @@ hist lnmad_gdppc, normal // Ahora la distribución es mucho más normal
 twoway (scatter cspf_sfi lnmad_gdppc)
 </pre>
 
-![relación lineal](../assets/img/posts/sesion2/lineal%20relation.png)
+![relación lineal](/assets/img/posts/sesion2/lineal%20relation.png)
 
 ### Superponiendo gráficos:
 
@@ -374,7 +375,7 @@ Podemos usar `twoway` indicando entre paréntesis cada gráfico que queremos, St
 twoway (scatter cspf_sfi lnmad_gdppc) (lfit cspf_sfi lnmad_gdppc) // lfit significa linear fit o ajuste lineal
 </pre>
 
-![lfit](../assets/img/posts/sesion2/lfit.png)
+![lfit](/assets/img/posts/sesion2/lfit.png)
 
 <pre class="sh_Stata">
 
@@ -383,6 +384,6 @@ twoway (scatter cspf_sfi lnmad_gdppc) (lfit cspf_sfi lnmad_gdppc) // lfit signif
 twoway (scatter cspf_sfi lnmad_gdppc) (lfitci cspf_sfi lnmad_gdppc)
 </pre>
 
-![lfitci](../assets/img/posts/sesion2/lfitci.png)
+![lfitci](/assets/img/posts/sesion2/lfitci.png)
 
 Terminaremos este post interpretando este último gráfico. Lo que nos indica esta relación lineal es que a medida que aumenta la variable del PIB (en el eje horizontal), disminuye la fragilidad del estado (eje vertical). Como ves, representar los datos es un ejercicio muy útil pues nos da mucha información, sin embargo, con este análisis descriptivo no es suficiente, en la próxima sesión continuaremos con el analisis exploratorio y plantearemos alguna hipótesis para tratar de testarla empíricamente. ¡Hasta entonces!
