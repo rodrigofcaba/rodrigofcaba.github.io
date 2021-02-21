@@ -182,9 +182,9 @@ Pues bien, lo que hacemos cuando hacemos un contraste de hipótesis es **compara
 
 Pero entonces para saber intepretar el contraste de hipótesis es imprescindible saber **cuál es la hipótesis nula.**
 
-Bien, esto depende exclusivamente del test o la prueba que estemos usando. Es decir, cada prueba estadística lleva asociada su hipótesis nula. Por ejemplo, como el objetivo de la T-Test es comprobar si hay diferencias estadísticamente significativas entre dos medias la hipótesis nula asociada a esta prueba es que **no existe diferencia**, es decir, que las medias que estamos comparando son iguales. Por eso, verás que en la salida de Stata aparece $H_0: diff = 0$, es decir, que no hay diferencia entre las medias. Esto quiere decir que partimos de la **suposición** de que la hipótesis nula es cierta y tratamos de proponer una hipótesis alternativa a esta (de ahí el nombre).
+Bien, esto depende exclusivamente del test o la prueba que estemos usando. Es decir, cada prueba estadística lleva asociada su hipótesis nula. Por ejemplo, como el objetivo de la T-Test es comprobar si hay diferencias estadísticamente significativas entre dos medias la hipótesis nula asociada a esta prueba es que **no existe diferencia**, es decir, que las medias que estamos comparando son iguales. Por eso, verás que en la salida de Stata aparece *Ho: diff = 0*, es decir, que no hay diferencia entre las medias. Esto quiere decir que partimos de la **suposición** de que la hipótesis nula es cierta y tratamos de proponer una hipótesis alternativa a esta (de ahí el nombre).
 
-La hipótesis alternativa suele denotarse $H_a$, o $H_1$ y pueden ocurrir tres cosas que se oponen a la hipótesis nula. Es decir, hay tres maneras de decir lo contrario a que las medias son iguales: o bien la media de los países colonizados es mayor que la de los no colonizados, o bien las medias son distintas en general, o bien la media de los países no colonizados es mayor que la de los países colonizados. De estas tres, obviamente, una de ellas no tiene sentido. Si recuerdas, nuestra hipótesis de investigación decía que los países con un origen colonial tendrían una fragilidad mayor que los que no fueron colonizados. Fíjate que Stata calcula la diferencia según el orden de las categorías de la variable. En este caso la diferencia la calcula en el siguiente orden:
+La hipótesis alternativa suele denotarse *Ha*, o *H1* y pueden ocurrir tres cosas que se oponen a la hipótesis nula. Es decir, hay tres maneras de decir lo contrario a que las medias son iguales: o bien la media de los países colonizados es mayor que la de los no colonizados, o bien las medias son distintas en general, o bien la media de los países no colonizados es mayor que la de los países colonizados. De estas tres, obviamente, una de ellas no tiene sentido. Si recuerdas, nuestra hipótesis de investigación decía que los países con un origen colonial tendrían una fragilidad mayor que los que no fueron colonizados. Fíjate que Stata calcula la diferencia según el orden de las categorías de la variable. En este caso la diferencia la calcula en el siguiente orden:
 
 <pre class="sh_Stata">
 diff = mean(No colon) - mean(Coloniza)  // Es decir, la media de los no colonizados menos la media de los colonizados.
@@ -199,9 +199,9 @@ Este es sólo uno de los test o contrastes de hipótesis que existen y aprendere
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+.tg td{border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+.tg th{border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg .tg-1ono{border-color:inherit;text-align:left;vertical-align:top}
 .tg .tg-wa1i{font-weight:bold;text-align:center;vertical-align:middle}
