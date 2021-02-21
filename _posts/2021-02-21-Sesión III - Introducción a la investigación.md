@@ -14,6 +14,7 @@ Bienvenido una semana más. Hasta ahora hemos visto cómo hacer las operaciones 
 Existen distintas definiciones de ciencia y, no en balde, existen distintas ciencias, desde las naturales hasta las humanas. No son todas iguales y las razones de estas diferencias son relevantes para entender cómo se hace cada una de ellas. Lo que a nosotros nos ocupa son las ciencias sociales, un tipo de ciencia particular dentro del conjunto de ciencias humanas (economía, ciencia política, sociología, etc.). Sin embargo, todas ellas tienen algo en común: tienen por objeto **comprender la realidad**. Pero la realidad es algo complejo y este tipo de conocimiento no es el único que tiene este objetivo, así también la filosofía o la teología tratan de entender la realidad pero desde perpectivas y, sobre todo, con metodologías distintas.
 
 Las ciencias dan una importancia central al **método**, por eso se habla normalmente de **Método Científico** antes incluso que de Ciencia. Y podemos decir que existen dos corrientes que desde -al menos- el slglo XVII han pugnado por otorgar a la ciencia su método. Estas corrientes son la **deductivista** que encuentra su origen en Descartes y otros filósofos racionales y la **inductivista** que tiene sus raices en el empirismo de Bacon, Hume y otros filósofos británicos de esta época.
+
 Mientras el **racionalismo** propone el uso de la **razón** para deducir las leyes que explican la realidad, el **empirismo** propone el uso de la **experiencia**. Si el primero cree que se pueden deducir de axiomas conclusiones generales, el segundo cree que de los casos concretos se pueden inducir las reglas generales. Pues bien, estas corrientes quedan -simplificando mucho- sintetizadas por el filósofo de la ciencia Karl Popper en el siglo XX. Desde Popper, cualquier ciencia, para obtener tal estatus, debe basar su proceder en el **Método Hipotético-Deductivo**. Según Popper no es posible deducir a priori todas las conclusiones sobre los fenómenos de la realidad, sin embargo, tampoco es posible llegar a un conocimiento verdadero por medio de la inducción. Esta síntesis se conoce como la **síntesis falsacionista** pues según Popper las teorías científicas no son nunca "verdaderas", las hipótesis no pueden verificarse, sino, como mucho, **falsarse**.
 
 ## ¿Se puede conocer la realidad mediante la pura observación?
@@ -82,15 +83,15 @@ en el que se formularon inicialmente.
 
 Toda investigación debe estar basada en una o varias teorías. Estas teorías, que pueden ser elaboradas por el mismo o distintos investigadores, conforman el marco teórico, es decir, los fundamentos de las posteriores hipótesis. Para elaborar el marco teórico el investigador debe hacer un trabajo previo de lectura y repaso de la literatura académica sobre el tema en cuestión. Conectar las ideas que encuentre en los distintos trabajos sobre esa materia y, de alguna manera, resumir el **"estado de la cuestión"** para poder construir sobre él su trabajo. Para hacer esto (que debes hacer de cara a tu trabajo) hoy en día existen lugares que contienen literatura académica de acceso libre. A continuación tienes una lista con algunos:
 
-1. Google Académico
+**Google Académico**
 
 [![scholar](/assets/img/posts/sesión3/google.png)](https://scholar.google.es/)
 
-2. JSTOR
+**JSTOR**
 
 [![jstor](/assets/img/posts/sesión3/jstor.png)](https://www.jstor.org/)
 
-3. Elsevier
+**Elsevier**
 
 [![elsevier](/assets/img/posts/sesión3/elsevier.png){: width="200"}](https://www.elsevier.com/es-es )
 
@@ -198,11 +199,11 @@ Este es sólo uno de los test o contrastes de hipótesis que existen y aprendere
 
 <style type="text/css">
 .tg  {border-collapse:collapse;border-spacing:0;}
-.tg td{border-color:black;border-style:solid;border-width:0px;font-family:Arial, sans-serif;font-size:14px;
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg th{border-color:black;border-style:solid;border-width:0px;font-family:Arial, sans-serif;font-size:14px;
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-1ono{background-color:#343434;border-color:inherit;text-align:left;vertical-align:top}
+.tg .tg-1ono{border-color:inherit;text-align:left;vertical-align:top}
 .tg .tg-wa1i{font-weight:bold;text-align:center;vertical-align:middle}
 .tg .tg-0lax{text-align:left;vertical-align:top}
 .tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
