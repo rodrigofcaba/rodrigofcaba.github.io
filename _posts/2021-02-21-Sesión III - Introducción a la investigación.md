@@ -105,7 +105,7 @@ Una vez que tienes una pregunta de investigación y has hecho una revisión de l
 - Debe estar fundamentada en la **teoría**
 - Debe ser **positiva** (no normativa) y puede ser descriptiva o **explicativa** (serán las que más nos interesen)
 
-### 5. El contraste de hipóteis
+### 5. El contraste de hipótesis
 
 Una vez has sido capaz de plantear una o varias hipótesis que den respuesta a tu pregunta de investigación debes ser capaz de contrastarla(s) empíricamente. Pero ¿en qué consiste esto exactamente?
 
