@@ -4,7 +4,7 @@ date: 2021-02-21
 categories: [Evolución y Teoría del Estado]
 tags: [stata]     # TAG names should always be lowercase
 mermaid: true
-image: /assets/img/posts/sesion1/stata.png
+image: /assets/img/posts/sesion3/popper.jpg
 ---
 
 Bienvenido una semana más. Hasta ahora hemos visto cómo hacer las operaciones básicas de limpieza de datos con Stata, ahora toca hablar de lo verdaderamente importante: ¿Cómo se hace una investigación en Ciencias Sociales? Para responder a esa pregunta es necesario hablar brevemente de qué es la ciencia y de cuál es la relación entre la ciencia y la sociedad. Esta sesión va a ser larga, así que, ¡vamos allá!
