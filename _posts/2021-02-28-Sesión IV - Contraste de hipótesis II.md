@@ -1,6 +1,6 @@
 ---
 title: Sesión 4. Contraste de hipótesis II
-date: 2021-02-27
+date: 2021-02-28
 categories: [Evolución y Teoría del Estado]
 tags: [stata]     # TAG names should always be lowercase
 mermaid: true
