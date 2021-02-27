@@ -5,7 +5,7 @@ categories: [Evolución y Teoría del Estado]
 tags: [stata]     # TAG names should always be lowercase
 mermaid: true
 math: true
-image: /assets/img/posts/sesión3/popper.jpg
+image: /assets/img/posts/sesión4/yoda.png
 ---
 
 Bienvenido. La semana pasada nos adentramos en el mundo del contraste de hipótesis, quizás con uno de los test estadísticos más intuitivos que existen, la prueba T (T-Test). Hoy continuaremos aprendiendo nuevos contrastes de hipótesis. Esta vez nos centraremos en las variables categóricas. Estas variables tienen un tratamiento algo especial cuando hablamos de contraste de hipótesis. Recuerda la tabla con la que terminábamos el post anterior, cuando nuestras variables son categóricas o categóricas y dummies (dicotómicas), usamos tablas de contingencia para llevar a cabo el contraste. Pero entonces ¿es suficiente con estas tablas? Simplificando la respuesta: no. La tabla nos da una idea de cómo los valores de dos variables se relacionan pero, como ocurría con el contraste de la semana anterior, no es suficiente con ver los datos, necesitamos aplicar alguna prueba estadística.
@@ -250,7 +250,7 @@ Entonces:
 
 - Cuando predominan las no inversiones , la relación es positiva: conforme aumentan (o disminuyen) los valores de las variables, aumentan (o disminuyen) los de la otra.
 - Cuando predominan las inversiones, la relación es negativa: conforme aumentan (o disminuyen) los valores de una de las variables, disminuyen (o aumentan) los de la otra.
--
+
 Fuente: De la Fuente Fernández, 2011
 
 Uno de los coeficientes más famosos es el **Coeficiente Gamma**:
