@@ -1,6 +1,6 @@
 ---
 title: Sesión 4. Contraste de hipótesis II
-date: 2021-02-28
+date: 2021-02-27
 categories: [Evolución y Teoría del Estado]
 tags: [stata]     # TAG names should always be lowercase
 mermaid: true
@@ -204,6 +204,81 @@ $$ L^2 = 2\sum^m_{j=1}\sum^n_{i=1}f_{ij}\ln{\frac{f_{ij}}{f_{ij^*}}}$$
 Simplemente se trata de otra alternativa para testar la hipótesis nula de independencia que es especialmente **útil cuando los valores de las frecuencias esperadas son muy pequeñas (menores que 5)**. En tales casos, los valores de la razón de verosimilitud y de la $\chi^2$ difieren (y el primero es más preciso), pero tienden a converger cuando los valores de las frecuencias esperadas aumentan.
 
 
+### El estadístico exacto de Fischer
+
+Ofrece la probabilidad exacta de obtener las frecuencias de hecho obtenidas o cualquier otra combinación más alejada de la hipótesis de independencia. Es utilizado principalmente para **muestras pequeñas** y tablas con dos variables dicotómicas (2x2).
+
+Sin embargo, estos estadísticos sólo nos dan una idea de la existencia de relación pero no de su fuerza. Para saber si una relación es fuerte o débil entre variables éstos no son suficientes. Para ello recurrimos a los estadísticos de **asociación**.
+
+## Las medidas de asociación
+
+Existen distintas medidas de asociación. Para elegir una medida concreta es necesario conocer las características particulares de cada medida, así como el **tipo de variables** estudiadas y la **hipótesis** que queremos contrastar.
+
+> En ningún caso está justificado obtener todas las medidas disponibles para seleccionar aquélla cuyo valor se ajusta a nuestros intereses. (Pinta 2020)
+
+### Medidas nominales de asociación
+
+Estas medidas se emplean para variables nominales (cualitativas). Y es importante recordar que **sólo informan del grado de asociación existente, no de la dirección de la asociación**. En general se basan en la chi-cuadrado y sirven para corregir su valor estandarizándolo entre 0 y 1.
+Entre ellas se encuentran:
+
+- El **coeficiente Phi ($\phi$)**: es una medida del grado de asociación entre dos variables dicotómicas (2x2) basada en el estadístico $\chi^2$ (Ferrán, 2001) y que toma valores entre 0 y 1 (0 indicará ninguna asociación y valores cercanos a 1 asociación fuerte).
+- El **Coeficiente de Contingencia (C)**: Es una extensión de Phi para tablas mayores de 2x2. Toma valores en el intervalo [0,1), es decir, no alcanza el 1. Su expresión es:
+$$ C=\sqrt{\frac{\chi^2}{\chi^2+n}} $$
+
+De nuevo, $C=0$ indica independencia mientras que $C=C_{max}$ indica fuerte asociación. El mayor problema que tiene este coeficiente es que **no sirve para comparar tablas de dimensiones distintas** porque su cota máxima depende de las dimensiones de la tabla de contingencia.
+
+- Para solucionar las deficiencias del Coeficiente de contingencia se usa la **V de Cramer** que está normalizado entre 0 y 1. Una vez más, valores cercanos a 0 indican no asociación mientras que valores próximos a 1 asociación fuerte. Su expresión es la siguiente:
+
+$$ V=\sqrt{\frac{\phi^2}{\min{k-1,r-1}}}=\sqrt{\frac{\frac{\chi^2}{n}}{\min{k-1,r-1}}} $$
+
+La V de Cramer, entonces, se usa para variables nominales de **más de dos categorías**
+
+### Medidas ordinales de asociación
+
+Como su nombre indica, utiliza variables ordinales y, al poder ordenarse sus valores, estas medidas nos sirven para conocer tanto la fuerza de la asociación como la **dirección de la relación.** Resumiendo:
+
+- Una **relación positiva** indica que los valores altos de una variable se asocian con valores altos de otra, y los valores bajos, con los valores bajos.
+- Una **relación negativa** indica que los valores altos de una variable se asocian con valores bajos de la otra, y los valores bajos con los valores altos.
+
+Para estudiar la relación entre variables ordinales estas medidas están basadas en el conceptos de **inversión y no inversión** realizando un cálculo de los pares posibles de valores. Es decir:
+
+- Si los valores de un caso en ambas variables son mayores (o menores) que los dos valores de otro caso, decimos que entre esos casos se da una **no inversión (concordantes)** (P o C).
+- Si el valor de un caso en una de las variables es mayor que el de otro caso, y en la otra variable el valor del segundo caso es mayor que el del primero, decimos que se da una **inversión (discordantes)** (Q o D).
+- Si dos casos tienen valores idénticos en una o en las dos variables, decimos que se da un **empate** (E).
+
+Entonces:
+
+- Cuando predominan las no inversiones , la relación es positiva: conforme aumentan (o disminuyen) los valores de las variables, aumentan (o disminuyen) los de la otra.
+- Cuando predominan las inversiones, la relación es negativa: conforme aumentan (o disminuyen) los valores de una de las variables, disminuyen (o aumentan) los de la otra.
+-
+Fuente: De la Fuente Fernández, 2011
+
+Uno de los coeficientes más famosos es el **Coeficiente Gamma**:
+
+$$ \gamma=\frac{P-Q}{P+Q} $$
+
+Donde $P$ son los pares concordantes y $Q$ los pares discordantes.
+
+Básicamente $\gamma$ cuenta para cada casilla el número total de pares de casos concordantes y discordantes para medir la relación entre ambas variables.
+
+Este coeficiente, a diferencia de los anteriores oscila entre -1 y 1, por lo que:
+
+- Si la relación entre dos variables es **perfecta** y **positiva**: $\gamma = 1$
+- Si la relación entre las variables es **perfecta** y **negativa**: $\gamma = -1$
+- Si las variables son independientes: $\gamma = 0$
+
+### Tau-b de Kendall y Tau-c de Kendall
+
+Existen otros dos estadísticos parecidos al coeficiente Gamma, las Tau ($\tau$) de Kendall. la primera o Tau-b ($\tau_b$) incorpora una corrección del coeficiente Gamma en el denominador, por lo que es un estadístico **más "conservador"** que Gamma. Sólo puede usarse en **tablas cuadradas** y su expresión es la siguiente:
+
+$$ \tau_b = \frac{P-Q}{\sqrt{(P+Q+T_X)(P+Q+T_Y)}} $$
+
+A su vez, la Tau-c ($\tau_c$) no es sino una corrección de la Tau-b para tablas rectangulares. Es de mencionar que este estadístico tiende a subestimar el verdadero grado de asociación entre las variables (Ferrán,2001:64-65).
+
+$$ \tau_c = \frac{2\min(I,J)(P-Q)}{n^2 \min(I-1,J-1)} $$
+
+Si la tabla es cuadrada, las Tau de Kendall son prácticamente iguales.
+
 ### Un resumen de las medidas de asociación y significación
 
 | Variables cruzadas          | Número de categorías  | Medida de asociación | Indicación de dirección |
@@ -216,3 +291,45 @@ Simplemente se trata de otra alternativa para testar la hipótesis nula de indep
 | De intervalo X De intervalo |                       | R de Pearson         | Sí                      |
 
 Fuente: Adaptado de [Data Art](http://www.dataart.ca/labs/lab-13/)
+
+Todos estos estadísticos se pueden pedir en Stata con el comando `tab`.
+
+<pre class="Stata_sh">
+
+tabulate variable1 variable2, chi2 lrchi2 exact V gamma taub [all] [nofreq] [col] [row]
+
+// Con la opción "all" Stata calcula todos los estadísticos indicados arriba
+</pre>
+
+## Construcción de índices
+
+Para terminar este post, veremos qué es y cómo se construye un índice. Esto nos será muy útil para las sesiones venideras y para tu trabajo.
+
+### ¿Qué es un índice?
+
+Supongamos que se desee evaluar el comportamiento de una variable para la cual, una vez elaboradas las definiciones correspondientes, se hayan encontrado diversos indicadores capaces de expresar los valores que asume en distintos objetos. A través de cada indicador, se podrán obtener los datos pertinentes, que deberán ser llevados a escalas adecuadas para ordenarlos. Para cada indicador que utilicemos, será necesario adoptar o construir una escala que cuantifique las observaciones realizadas. De acuerdo con los datos obtenidos, evaluaremos en cada escala el comportamiento que sigue cada indicador. No obstante, esto no nos permite todavía medir claramente la variable, pues nos entrega **información fragmentaria**, que debe ser **integrada** o **sintetizada** para llegar a un **valor único**, que exprese lo que en realidad ocurre con la variable. Para lograrlo, debemos **sumar ponderadamente los valores de los indicadores**, obteniendo un valor total que se denomina **índice**, y que es el que nos dará la información relevante sobre el problema en estudio.
+
+Para construir un índice, por tanto, necesitamos **varias variables** de la base de datos que sirvan para medir una **misma característica**. En el caso de Quality of Government, por ejemplo, hay tres variables de calidad de la burocracia: `qs_close, qs_impar, qs_proff`. Lo primero que debemos hacer es examinar las correlaciones entre estas variables (veremos más sobre correlación en la próxima sesión):
+
+<pre class="Stata_sh">
+
+corr qs_closed qs_impar qs_proff
+pwcorr qs_closed qs_impar qs_proff, obs sig
+
+// Con la opción obs pido las observaciones para cada cruce y con la opción sig pido la significación estadística.
+// Buscamos aquella (o aquellas) relaciones estadísticamente significativas, es decir, con un p-value inferior a 0.05
+</pre>
+
+![corr](/assets/img/posts/sesión4/corr.png)
+
+Vemos que la pareja `qs_proff y qs_impar` tienen una correlación de 0.786 (más sobre esto en la siguiente sesión) y un p-value de prácticamente 0 así que se pueden combinar para crear un índice. Lo hacemos de la siguiente manera:
+
+<pre class="Stata_sh">
+
+gen bureaucracy=(qs_impar + qs_proff)/2 // Suma ponderada (una media de los valores)
+sum bureaucracy // Si queréis comprobar cómo queda
+</pre>
+
+Ya tienes un índice que mide la burocracia usando dos indicadores listo para usarlo.
+
+En la próxima sesión veremos el último contraste de hipótesis previo al modelo de regresión (el ANOVA) y nos adentraremos en el mundo de la correlación.
