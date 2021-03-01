@@ -16,7 +16,7 @@ El objetivo de este contraste será determinar si dos variables se encuentran re
 
 ### Tablas de frecuencias y tablas de contingencia
 
-Lo primero es distinguir entre tablas de frecuencia y tablas de contingencia. Como ya hemos mencionado previamente en este curso podemos pedir a Stata una tabla con la frecuencia con la que se repiten los valores de **una** variable (**tabla de frecuencias**) y también podemos pedirle una tabla en la que se **cruzan** las frecuencias de **dos** variables (**tabla de contingencia**) ambas se obtienen con el comando tab:
+Lo primero es distinguir entre tablas de frecuencia y tablas de contingencia. Como ya hemos mencionado previamente en este curso podemos pedir a Stata una tabla con la frecuencia con la que se repiten los valores de **una** variable (**tabla de frecuencias**) y también podemos pedirle una tabla en la que se **cruzan** las frecuencias de **dos** variables (**tabla de contingencia**) ambas se obtienen con el comando `tab`:
 
 <pre class="Stata_sh">
 tab gol_est // tabla de frecuencias
@@ -39,11 +39,11 @@ tab gol_est ht_region
 
 ![tabla](/assets/img/posts/sesión4/tabla.png)
 
-Para ver un poco más claras las partes de las que hablábamos a continuación vemos las filas y las columnas transpuestas:
+Para ver un poco más claras las partes de las que hablábamos, a continuación vemos las filas y las columnas transpuestas:
 
 ![partes](/assets/img/posts/sesión4/marginales.png)
 
-Para obtener los porcentajes se añade al comando `tab` una opción. Es posible pedir porcentajes "de fila" o "de columna". Esto es relevante porque la interpretación de los porcentajes es distinta en cada caso. Si seguimos la convención de colocar en columnas la variable independiente, obtener los porcentajes por columna nos permite interpretar el efecto que esta variable explicativa tiene sobre la independiente (será lo más común).
+Para obtener los porcentajes se añade al comando `tab` una opción. Es posible pedir porcentajes "de fila" o "de columna". Esto es relevante porque la interpretación de los porcentajes es distinta en cada caso. Si seguimos la convención de colocar en columnas la variable independiente, obtener los porcentajes por columna nos permite interpretar el efecto que esta variable explicativa tiene sobre la dependiente (será lo más común).
 
 <pre class="Stata_sh">
 tab gol_est ht_region, <ins>col</ins>umn
@@ -51,7 +51,7 @@ tab gol_est ht_region, <ins>col</ins>umn
 
 ![cols](/assets/img/posts/sesión4/cols.png)
 
-Fíjate que debajo de todos los marginales de columna ahora hay un 100 que indica que los porcentajes de cada columna suman esta cantidad. Por tanto, la interpretación sería:
+Fíjate que debajo de todos los marginales de columna ahora hay un 100, que indica que los porcentajes de cada columna suman esta cantidad. Por tanto, la interpretación sería:
 
 > De los países de la región "Latinoamérica" (segunda columna), un 78.95% tienen sistemas proporcionales, mientras que un 21.05% tienen sistemas mixtos.
 
@@ -85,7 +85,7 @@ Y se piden en Stata así:
 tab gol_est ht_region, cell
 </pre>
 
-Finalmente, ¿cómo deben interpretarse (leerse) las tablas de contingencia con porcentajes? Siguiendo la regla de Zeisel:
+Finalmente, ¿cómo deben interpretarse (leerse) las tablas de contingencia con porcentajes? Siguiendo la **regla de Zeisel**:
 
 > Los porcentajes han de calcularse en la dirección de la variable independiente e interpretarse en la de la dependiente. Es decir, se calcularán porcentajes sobre la columna que habrán de ser interpretados por filas.
 
@@ -110,7 +110,7 @@ Sea la siguiente tabla de contingencia:
 
 Para calcular la tabla teórica, es decir, las **frecuencias esperadas**, usamos las fórmulas de arriba:
 
-La frecuencia esperada en la fila 1, columna 1 ($$f_{11}$$), es decir, el cantidad esperada de países de américa Latina y el Caribe con sistema electoral mayoritario (si no hubiera ningún efecto de la región geográfica sobre el tipo de sistema electoral) sería:
+La frecuencia esperada en la fila 1, columna 1 ($$f_{11}$$), es decir, la cantidad esperada de países de América Latina y el Caribe con sistema electoral mayoritario (si no hubiera ningún efecto de la región geográfica sobre el tipo de sistema electoral) sería:
 
 $$ f_{11} = \frac{f_1\cdot f_1}{f_{..}} = \frac{16\cdot27}{64} = 6.75 $$
 
@@ -124,7 +124,7 @@ tab sis_elec regiones, expected //Esto muestra tanto las observadas como las esp
 
 Así, podemos comparar los valores observados con los esperados. Pues bien, el hecho de que la tabla observada no sea idéntica a la teórica nos indica que estas variables tienen algún tipo de asociación, es decir, que la variable independiente tiene cierto efecto sobre la variable dependiente. Una primera forma de ver qué tipo de efecto consiste en obtener los **residuos**.
 
-> Los residuos son las **diferencias existentes en cada casilla entre la tabla empírica y la tabla teórica**, es decir, entre las **frecuencias observadas** y las **frecuencias esperadas**(esperadas si no hubiera relación entre las variables) (Martín, 2008)
+> Los residuos son las **diferencias existentes en cada casilla entre la tabla empírica y la tabla teórica**, es decir, entre las **frecuencias observadas** y las **frecuencias esperadas** (esperadas si no hubiera relación entre las variables) (Martín, 2008)
 
 Por tanto los residuos se calculan de la siguiente manera:
 
@@ -164,31 +164,31 @@ Esto es muy útil, pues nos permite saber específicamente en qué casillas se d
 
 Además de la significación de cada casilla, es posible medir si la **relación global entre las dos variables es significativa**. Para esto se utilza el **estadístico chi-cuadrado o ji-cuadrado($$\chi^2$$)**
 
-Este estadístico fue propuesto por Pearson y permite **contrastar la hipótesis de que los dos criterios de clasificación utilizados (las dos variables categóricas) son independientes**. Es decir, se parte de la hipótesis nula de independencia de las variables. Para el que esté interesado el estadístico se construye a partir de las frecuencias esperadas para cada casilla siguiendo la siguiente fórmula:
+Este estadístico fue propuesto por Pearson y permite **contrastar la hipótesis de que los dos criterios de clasificación utilizados (las dos variables categóricas) son independientes**. Es decir, se parte de la hipótesis nula de independencia de las variables. Para el que esté interesado, el estadístico se construye a partir de las frecuencias esperadas para cada casilla siguiendo la siguiente fórmula:
 
 $$ \chi^2=\sum^m_{j=1}\sum^n_{i=1} \frac{(f_{ij}-f_{ij}^\prime)}{f_{ij}^\prime} $$
 
-Por tanto, simplemente es la suma de los residuos tipificados al cuadrado (veremos esto con más detalle cuando hablemos del modelo de regresión lineal simle).
+Por tanto, simplemente es la suma de los residuos tipificados al cuadrado (veremos esto con más detalle cuando hablemos del modelo de regresión lineal simple).
 
-Lo más importante es recordar que este estadístico vale cero cuando las variables son completamente **independientes**. Asimismo, es mayor cuanto mayor sea la discrepancia entre las $$f_o$$ y las $$f_o$$ (o cuanto mayor sea la relación entre las variables).
+Lo más importante es recordar que este estadístico vale cero cuando las variables son completamente **independientes**. Asimismo, es mayor cuanto mayor sea la discrepancia entre las $$f_o$$ y las $$f_e$$ (o cuanto mayor sea la relación entre las variables).
 
-> ATENCIÓN: Sin embargo, este estadístico no suele utilizarse como indicador de la fuerza de la asociación porque no está estandarizado entre 0 y 1. Veremos más abajo qué estadísticos usar para este propósito.
+> **ATENCIÓN**: Sin embargo, este estadístico no suele utilizarse como indicador de la fuerza de la asociación porque no está estandarizado entre 0 y 1. Veremos más abajo qué estadísticos usar para este propósito.
 
 El estadístico $$\chi^2$$ sigue una distribución conocida según sus **Grados de Libertad** que se pueden obtener como sigue:
 
-$$ gl=(k-1)*(r-1) $$
+$$ gl=(k-1)\cdot(r-1) $$
 
-donde $$k$$ es el número de filas en la tabla y $$j$$ es el número de columnas. La representación gráfica de este estadístico es la siguiente:
+donde $$k$$ es el número de filas en la tabla y $$r$$ es el número de columnas. La representación gráfica de este estadístico es la siguiente:
 
 ![chicuadrado](https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Chi-square_distributionPDF.png/1280px-Chi-square_distributionPDF.png){: width="400"}
 
 Al no ser este un curso de estadística, no entraremos en más detalles sobre el estadístico y sus grados de libertad. Para calcular el valor del estadístico debe usarse la fórmula de arriba. Sin embargo, Stata calcula por nosotros este valor como podemos leer en la última salida del apartado anterior. En ese caso, estamos ante una $$\chi^2$$ con 1 grado de libertad (entre paréntesis) que tiene un valor de $$6.1715$$. Pero el valor en el que debemos fijarnos para el contraste de hipótesis es el que está al lado, de nuevo, el famoso p-value ($$Pr=0.013$$).
 
-> Si el p-value se encuentra por debajo de 0.05, es decir, el valor de $$\alpha$$, diremos que hay evidencia suficiente en contra de la hipótesis nula de independencia y, por tanto, podemos concluir que las variables enfrentadas están relacionadas y que esta asociación es estadísticamente significativa con un nivel de confianza del 95%
+> Si el p-value se encuentra por debajo de 0.05, es decir, el valor de $$\alpha$$, diremos que hay evidencia suficiente en contra de la hipótesis nula de independencia y, por tanto, podemos concluir que las **variables** enfrentadas están **relacionadas** y que esta **asociación** es **estadísticamente** **significativa** con un nivel de confianza del 95%.
 
 Por tanto, en nuestro ejemplo, la región y el tipo de sistema electoral están asociados y esta relación es estadísticamente significativa con una confianza del 95%.
 
-La segunda fila de la salida que estamos analizando indica la razón de verosimilitud que se asa en el cociente de las diferencias entre las frecuencias observadas y esperadas en lugar de en su diferencia, como podemos ver en la siguiente fórmula:
+La segunda fila de la salida que estamos analizando indica la razón de verosimilitud, que se basa en el cociente de las diferencias entre las frecuencias observadas y esperadas en lugar de en su diferencia, como podemos ver en la siguiente fórmula:
 
 $$ L^2 = 2\sum^m_{j=1}\sum^n_{i=1}f_{ij}\ln{\frac{f_{ij}}{f_{ij^*}}}$$
 
@@ -220,7 +220,7 @@ De nuevo, $$C=0$$ indica independencia mientras que $$C=C_{max}$$ indica fuerte 
 
 - Para solucionar las deficiencias del Coeficiente de contingencia se usa la **V de Cramer** que está normalizado entre 0 y 1. Una vez más, valores cercanos a 0 indican no asociación mientras que valores próximos a 1 asociación fuerte. Su expresión es la siguiente:
 
-$$ V=\sqrt{\frac{\phi^2}{\min{k-1,r-1}}}=\sqrt{\frac{\frac{\chi^2}{n}}{\min{k-1,r-1}}} $$
+$$ V=\sqrt{\frac{\phi^2}{\min{(k-1,r-1)}}}=\sqrt{\frac{\frac{\chi^2}{n}}{\min{(k-1,r-1)}}} $$
 
 La V de Cramer, entonces, se usa para variables nominales de **más de dos categorías**
 
@@ -228,10 +228,10 @@ La V de Cramer, entonces, se usa para variables nominales de **más de dos categ
 
 Como su nombre indica, utiliza variables ordinales y, al poder ordenarse sus valores, estas medidas nos sirven para conocer tanto la fuerza de la asociación como la **dirección de la relación.** Resumiendo:
 
-- Una **relación positiva** indica que los valores altos de una variable se asocian con valores altos de otra, y los valores bajos, con los valores bajos.
-- Una **relación negativa** indica que los valores altos de una variable se asocian con valores bajos de la otra, y los valores bajos con los valores altos.
+- Una **relación positiva** indica que los valores **altos** de una variable se asocian con valores **altos** de otra, y los valores **bajos**, con los valores **bajos**.
+- Una **relación negativa** indica que los valores **altos** de una variable se asocian con valores **bajos** de la otra, y los valores **bajos** con los valores **altos**.
 
-Para estudiar la relación entre variables ordinales estas medidas están basadas en el conceptos de **inversión y no inversión** realizando un cálculo de los pares posibles de valores. Es decir:
+Para estudiar la relación entre variables ordinales estas medidas están basadas en el concepto de **inversión y no inversión** realizando un cálculo de los pares posibles de valores. Es decir:
 
 - Si los valores de un caso en ambas variables son mayores (o menores) que los dos valores de otro caso, decimos que entre esos casos se da una **no inversión (concordantes)** (P o C).
 - Si el valor de un caso en una de las variables es mayor que el de otro caso, y en la otra variable el valor del segundo caso es mayor que el del primero, decimos que se da una **inversión (discordantes)** (Q o D).
@@ -250,13 +250,13 @@ $$ \gamma=\frac{P-Q}{P+Q} $$
 
 Donde $$P$$ son los pares concordantes y $$Q$$ los pares discordantes.
 
-Básicamente $$\gamma$$ cuenta para cada casilla el número total de pares de casos concordantes y discordantes para medir la relación entre ambas variables.
+Básicamente, $$\gamma$$ cuenta, para cada casilla, el número total de pares de casos concordantes y discordantes para medir la relación entre ambas variables.
 
 Este coeficiente, a diferencia de los anteriores oscila entre -1 y 1, por lo que:
 
 - Si la relación entre dos variables es **perfecta** y **positiva**: $$\gamma = 1$$
 - Si la relación entre las variables es **perfecta** y **negativa**: $$\gamma = -1$$
-- Si las variables son independientes: $$\gamma = 0$$
+- Si las variables son **independientes**: $$\gamma = 0$$
 
 ### Tau-b de Kendall y Tau-c de Kendall
 
@@ -264,7 +264,7 @@ Existen otros dos estadísticos parecidos al coeficiente Gamma, las Tau ($$\tau$
 
 $$ \tau_b = \frac{P-Q}{\sqrt{(P+Q+T_X)(P+Q+T_Y)}} $$
 
-A su vez, la Tau-c ($$\tau_c$$) no es sino una corrección de la Tau-b para tablas rectangulares. Es de mencionar que este estadístico tiende a subestimar el verdadero grado de asociación entre las variables (Ferrán,2001:64-65).
+A su vez, la Tau-c ($$\tau_c$$) no es sino una corrección de la Tau-b para tablas rectangulares. Es de mencionar que este estadístico tiende a subestimar el verdadero grado de asociación entre las variables (Ferrán, 2001:64-65).
 
 $$ \tau_c = \frac{2\min(I,J)(P-Q)}{n^2 \min(I-1,J-1)} $$
 
@@ -320,4 +320,4 @@ sum bureaucracy // Si queréis comprobar cómo queda
 
 Ya tienes un índice que mide la burocracia usando dos indicadores listo para usarlo.
 
-En la próxima sesión veremos el último contraste de hipótesis previo al modelo de regresión (el ANOVA) y nos adentraremos en el mundo de la correlación.
+Si has llegado hasta aquí, enhorabuena, ha sido un post duro y con mucha información. En la próxima sesión veremos el último contraste de hipótesis previo al modelo de regresión (el ANOVA) y nos adentraremos en el mundo de la correlación.
