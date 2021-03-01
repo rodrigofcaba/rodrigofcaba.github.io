@@ -2,7 +2,7 @@
 title: Sesión 1. Introducción a Stata
 date: 2021-01-14
 categories: [Evolución y Teoría del Estado]
-tags: [Stata]     # TAG names should always be lowercase
+tags: [stata]     # TAG names should always be lowercase
 mermaid: true
 image: /assets/img/posts/sesion1/stata.png
 ---
