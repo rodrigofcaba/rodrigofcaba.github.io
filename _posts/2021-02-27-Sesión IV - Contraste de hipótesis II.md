@@ -19,7 +19,6 @@ El objetivo de este contraste será determinar si dos variables se encuentran re
 Lo primero es distinguir entre tablas de frecuencia y tablas de contingencia. Como ya hemos mencionado previamente en este curso podemos pedir a Stata una tabla con la frecuencia con la que se repiten los valores de **una** variable (**tabla de frecuencias**) y también podemos pedirle una tabla en la que se **cruzan** las frecuencias de **dos** variables (**tabla de contingencia**) ambas se obtienen con el comando tab:
 
 <pre class="Stata_sh">
-
 tab gol_est // tabla de frecuencias
 </pre>
 
@@ -27,7 +26,6 @@ tab gol_est // tabla de frecuencias
 
 
 <pre class="Stata_sh">
-
 tab ht_region gol_est  // tabla de contingencia
 </pre>
 
@@ -36,7 +34,6 @@ tab ht_region gol_est  // tabla de contingencia
 En la sesión anterior utilizábamos una única variable para comparar la media de dos grupos con la T-Test, a partir de ahora nos ceñiremos a las **tablas de contingencia**. Toda tabla de contingencia contiene **frecuencias**, **marginales** y, opcionalmente, **porcentajes**. Una pregunta pertinente antes de nada es saber que variable colocar en las filas y cuál en las columnas. No es en ningún caso obligatorio pero sí que se suele usar la convención de colocar en las columnas la variable independiente mientras que en las filas se coloca la variable dependiente. Así, en el siguiente ejemplo vemos el efecto de la región a la que pertenece el país (en columnas) sobre el tipo de sistema electoral del mismo (en filas):
 
 <pre class="Stata_sh">
-
 tab gol_est ht_region
 </pre>
 
@@ -49,7 +46,6 @@ Para ver un poco más claras las partes de las que hablábamos a continuación v
 Para obtener los porcentajes se añade al comando `tab` una opción. Es posible pedir porcentajes "de fila" o "de columna". Esto es relevante porque la interpretación de los porcentajes es distinta en cada caso. Si seguimos la convención de colocar en columnas la variable independiente, obtener los porcentajes por columna nos permite interpretar el efecto que esta variable explicativa tiene sobre la independiente (será lo más común).
 
 <pre class="Stata_sh">
-
 tab gol_est ht_region, <ins>col</ins>umn
 </pre>
 
@@ -62,7 +58,6 @@ Fíjate que debajo de todos los marginales de columna ahora hay un 100 que indic
 La opción para obtener los porcentajes "de fila" es `row`. Y una manera de limpiar un poco la tabla para leer sólo porcentajes es indicarle a Stata que además de mostrar los porcentajes, elimine (no muestre) las frecuencias:
 
 <pre class="Stata_sh">
-
 tab gol_est ht_region, col nofreq
 </pre>
 
@@ -70,7 +65,7 @@ tab gol_est ht_region, col nofreq
 
 ### ¿Cómo calcula Stata los porcentajes?
 
-Si llamamos $f_{ij}$ a la frecuencia de la fila i y la columna j y $f_i$ al marginal de la fila i, el porcentaje de la fila i y la columna j se calcula como el cociente entre las frecuencias y marginales de cada fila multiplicado por 100, es decir:
+Si llamamos $$f_{ij}$$ a la frecuencia de la fila i y la columna j y $$f_i$$ al marginal de la fila i, el porcentaje de la fila i y la columna j se calcula como el cociente entre las frecuencias y marginales de cada fila multiplicado por 100, es decir:
 
 $$ p_{ij}^H = \frac{f_{ij}}{f_i}\cdot100 $$
 
@@ -87,7 +82,6 @@ $$ p_{ij}^T = \frac{f_{ij}}{f}\cdot100 $$
 Y se piden en Stata así:
 
 <pre class="Stata_sh">
-
 tab gol_est ht_region, cell
 </pre>
 
@@ -104,11 +98,11 @@ Pues bien, estas frecuencias que aparecen por defecto con el comando `tab` se de
 
 ## Medidas de asociación y significación
 
-Para calcular las **frecuencias esperadas** $f_{ij}^*$ Stata utiliza la siguiente fórmula:
+Para calcular las **frecuencias esperadas** $$f_{ij}^*$$ Stata utiliza la siguiente fórmula:
 
 $$ f_{ij}^* = \frac{f_if_j}{f_{..}} $$
 
-donde $f_i$ es el total de fila, $f_j$ el total de columna y $f_{..}$ el número total de casos. Veamos un ejemplo:
+donde $$f_i$$ es el total de fila, $$f_j$$ el total de columna y $$f_{..}$$ el número total de casos. Veamos un ejemplo:
 
 Sea la siguiente tabla de contingencia:
 
@@ -116,14 +110,13 @@ Sea la siguiente tabla de contingencia:
 
 Para calcular la tabla teórica, es decir, las **frecuencias esperadas**, usamos las fórmulas de arriba:
 
-La frecuencia esperada en la fila 1, columna 1 ($f_{11}$), es decir, el cantidad esperada de países de américa Latina y el Caribe con sistema electoral mayoritario (si no hubiera ningún efecto de la región geográfica sobre el tipo de sistema electoral) sería:
+La frecuencia esperada en la fila 1, columna 1 ($$f_{11}$$), es decir, el cantidad esperada de países de américa Latina y el Caribe con sistema electoral mayoritario (si no hubiera ningún efecto de la región geográfica sobre el tipo de sistema electoral) sería:
 
 $$ f_{11} = \frac{f_1\cdot f_1}{f_{..}} = \frac{16\cdot27}{64} = 6.75 $$
 
 Y así sucesivamente. Finalmente obtendríamos la **tabla teórica** que -por supuesto- no vamos a calcular a mano, y en Stata puede obtenerse de la siguiente forma:
 
 <pre class="Stata_sh">
-
 tab sis_elec regiones, expected //Esto muestra tanto las observadas como las esperadas
 </pre>
 
@@ -148,14 +141,12 @@ $$ r_{ij}^A = \frac{r_{ij}^S}{\sqrt{(1-\frac{f_i}{f})\cdot(1-\frac{f_j}{f}))}} $
 Para obtener la tabla de residuos de Pearson o los residuos ajustados en Stata es necesario instalar un paquete (.ado). Los paquetes .ado son comandos que extienden la funcionalidad de Stata. Son comandos escritos por la comunidad y pueden instalarse con el comando `ssc install`.  Para obtener los residuos ajustados y de Pearson en concreto necesitamos el comando `tabchi`:
 
 <pre class="Stata_sh">
-
 ssc install tab_chi
 </pre>
 
 Ahora, ya podemos pedir a Stata cualquier tipo de residuo.
 
 <pre class="Stata_sh">
-
 tabchi sis_elec regiones, raw pearson adjust noo noe
 </pre>
 
@@ -165,13 +156,13 @@ Como ves, arriba Stata nos indica que en cada celda de la tabla se puede leer el
 
 Como podrás haber intuido los residuos pueden tener signo, pues el valor observado puede ser mayor o menor que el esperado. Un residuo positivo indica que el valor observado es mayor que el esperado mientras que un residuo negativo indica que el valor observado es menor que el esperado. Esto ya nos da una idea de la dirección de la relación entre las variables.
 
->En general, si el residuo ajustado supera $1.96$ en términos absolutos (negativo o positivo) puede decirse que la diferencia entre el valor observado y el esperado en caso de no haber relación entre las variables no es debido al azar con un 95% de confianza.
+>En general, si el residuo ajustado supera $$1.96$$ en términos absolutos (negativo o positivo) puede decirse que la diferencia entre el valor observado y el esperado en caso de no haber relación entre las variables no es debido al azar con un 95% de confianza.
 
 Esto es muy útil, pues nos permite saber específicamente en qué casillas se da una relación estadísticamente significativa entre las variables. Sin embargo, para tener una medida que nos permita contrastar una hipótesis, aún nos queda hablar de las dos últimas líneas de esta salida.
 
 ### La Chi-cuadrado y la razón de verosimilitud
 
-Además de la significación de cada casilla, es posible medir si la **relación global entre las dos variables es significativa**. Para esto se utilza el **estadístico chi-cuadrado o ji-cuadrado($\chi^2$)**
+Además de la significación de cada casilla, es posible medir si la **relación global entre las dos variables es significativa**. Para esto se utilza el **estadístico chi-cuadrado o ji-cuadrado($$\chi^2$$)**
 
 Este estadístico fue propuesto por Pearson y permite **contrastar la hipótesis de que los dos criterios de clasificación utilizados (las dos variables categóricas) son independientes**. Es decir, se parte de la hipótesis nula de independencia de las variables. Para el que esté interesado el estadístico se construye a partir de las frecuencias esperadas para cada casilla siguiendo la siguiente fórmula:
 
@@ -179,21 +170,21 @@ $$ \chi^2=\sum^m_{j=1}\sum^n_{i=1} \frac{(f_{ij}-f_{ij}^\prime)}{f_{ij}^\prime} 
 
 Por tanto, simplemente es la suma de los residuos tipificados al cuadrado (veremos esto con más detalle cuando hablemos del modelo de regresión lineal simle).
 
-Lo más importante es recordar que este estadístico vale cero cuando las variables son completamente **independientes**. Asimismo, es mayor cuanto mayor sea la discrepancia entre las $f_o$ y las $f_o$ (o cuanto mayor sea la relación entre las variables).
+Lo más importante es recordar que este estadístico vale cero cuando las variables son completamente **independientes**. Asimismo, es mayor cuanto mayor sea la discrepancia entre las $$f_o$$ y las $$f_o$$ (o cuanto mayor sea la relación entre las variables).
 
 > ATENCIÓN: Sin embargo, este estadístico no suele utilizarse como indicador de la fuerza de la asociación porque no está estandarizado entre 0 y 1. Veremos más abajo qué estadísticos usar para este propósito.
 
-El estadístico $\chi^2$ sigue una distribución conocida según sus **Grados de Libertad** que se pueden obtener como sigue:
+El estadístico $$\chi^2$$ sigue una distribución conocida según sus **Grados de Libertad** que se pueden obtener como sigue:
 
 $$ gl=(k-1)*(r-1) $$
 
-donde $k$ es el número de filas en la tabla y $j$ es el número de columnas. La representación gráfica de este estadístico es la siguiente:
+donde $$k$$ es el número de filas en la tabla y $$j$$ es el número de columnas. La representación gráfica de este estadístico es la siguiente:
 
 ![chicuadrado](https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Chi-square_distributionPDF.png/1280px-Chi-square_distributionPDF.png){: width="400"}
 
-Al no ser este un curso de estadística, no entraremos en más detalles sobre el estadístico y sus grados de libertad. Para calcular el valor del estadístico debe usarse la fórmula de arriba. Sin embargo, Stata calcula por nosotros este valor como podemos leer en la última salida del apartado anterior. En ese caso, estamos ante una $\chi^2$ con 1 grado de libertad (entre paréntesis) que tiene un valor de $6.1715$. Pero el valor en el que debemos fijarnos para el contraste de hipótesis es el que está al lado, de nuevo, el famoso p-value ($Pr=0.013$).
+Al no ser este un curso de estadística, no entraremos en más detalles sobre el estadístico y sus grados de libertad. Para calcular el valor del estadístico debe usarse la fórmula de arriba. Sin embargo, Stata calcula por nosotros este valor como podemos leer en la última salida del apartado anterior. En ese caso, estamos ante una $$\chi^2$$ con 1 grado de libertad (entre paréntesis) que tiene un valor de $$6.1715$$. Pero el valor en el que debemos fijarnos para el contraste de hipótesis es el que está al lado, de nuevo, el famoso p-value ($$Pr=0.013$$).
 
-> Si el p-value se encuentra por debajo de 0.05, es decir, el valor de $\alpha$, diremos que hay evidencia suficiente en contra de la hipótesis nula de independencia y, por tanto, podemos concluir que las variables enfrentadas están relacionadas y que esta asociación es estadísticamente significativa con un nivel de confianza del 95%
+> Si el p-value se encuentra por debajo de 0.05, es decir, el valor de $$\alpha$$, diremos que hay evidencia suficiente en contra de la hipótesis nula de independencia y, por tanto, podemos concluir que las variables enfrentadas están relacionadas y que esta asociación es estadísticamente significativa con un nivel de confianza del 95%
 
 Por tanto, en nuestro ejemplo, la región y el tipo de sistema electoral están asociados y esta relación es estadísticamente significativa con una confianza del 95%.
 
@@ -201,7 +192,7 @@ La segunda fila de la salida que estamos analizando indica la razón de verosimi
 
 $$ L^2 = 2\sum^m_{j=1}\sum^n_{i=1}f_{ij}\ln{\frac{f_{ij}}{f_{ij^*}}}$$
 
-Simplemente se trata de otra alternativa para testar la hipótesis nula de independencia que es especialmente **útil cuando los valores de las frecuencias esperadas son muy pequeñas (menores que 5)**. En tales casos, los valores de la razón de verosimilitud y de la $\chi^2$ difieren (y el primero es más preciso), pero tienden a converger cuando los valores de las frecuencias esperadas aumentan.
+Simplemente se trata de otra alternativa para testar la hipótesis nula de independencia que es especialmente **útil cuando los valores de las frecuencias esperadas son muy pequeñas (menores que 5)**. En tales casos, los valores de la razón de verosimilitud y de la $$\chi^2$$ difieren (y el primero es más preciso), pero tienden a converger cuando los valores de las frecuencias esperadas aumentan.
 
 
 ### El estadístico exacto de Fischer
@@ -225,7 +216,7 @@ Entre ellas se encuentran:
 - El **Coeficiente de Contingencia (C)**: Es una extensión de Phi para tablas mayores de 2x2. Toma valores en el intervalo [0,1), es decir, no alcanza el 1. Su expresión es:
 $$ C=\sqrt{\frac{\chi^2}{\chi^2+n}} $$
 
-De nuevo, $C=0$ indica independencia mientras que $C=C_{max}$ indica fuerte asociación. El mayor problema que tiene este coeficiente es que **no sirve para comparar tablas de dimensiones distintas** porque su cota máxima depende de las dimensiones de la tabla de contingencia.
+De nuevo, $$C=0$$ indica independencia mientras que $$C=C_{max}$$ indica fuerte asociación. El mayor problema que tiene este coeficiente es que **no sirve para comparar tablas de dimensiones distintas** porque su cota máxima depende de las dimensiones de la tabla de contingencia.
 
 - Para solucionar las deficiencias del Coeficiente de contingencia se usa la **V de Cramer** que está normalizado entre 0 y 1. Una vez más, valores cercanos a 0 indican no asociación mientras que valores próximos a 1 asociación fuerte. Su expresión es la siguiente:
 
@@ -257,23 +248,23 @@ Uno de los coeficientes más famosos es el **Coeficiente Gamma**:
 
 $$ \gamma=\frac{P-Q}{P+Q} $$
 
-Donde $P$ son los pares concordantes y $Q$ los pares discordantes.
+Donde $$P$$ son los pares concordantes y $$Q$$ los pares discordantes.
 
-Básicamente $\gamma$ cuenta para cada casilla el número total de pares de casos concordantes y discordantes para medir la relación entre ambas variables.
+Básicamente $$\gamma$$ cuenta para cada casilla el número total de pares de casos concordantes y discordantes para medir la relación entre ambas variables.
 
 Este coeficiente, a diferencia de los anteriores oscila entre -1 y 1, por lo que:
 
-- Si la relación entre dos variables es **perfecta** y **positiva**: $\gamma = 1$
-- Si la relación entre las variables es **perfecta** y **negativa**: $\gamma = -1$
-- Si las variables son independientes: $\gamma = 0$
+- Si la relación entre dos variables es **perfecta** y **positiva**: $$\gamma = 1$$
+- Si la relación entre las variables es **perfecta** y **negativa**: $$\gamma = -1$$
+- Si las variables son independientes: $$\gamma = 0$$
 
 ### Tau-b de Kendall y Tau-c de Kendall
 
-Existen otros dos estadísticos parecidos al coeficiente Gamma, las Tau ($\tau$) de Kendall. la primera o Tau-b ($\tau_b$) incorpora una corrección del coeficiente Gamma en el denominador, por lo que es un estadístico **más "conservador"** que Gamma. Sólo puede usarse en **tablas cuadradas** y su expresión es la siguiente:
+Existen otros dos estadísticos parecidos al coeficiente Gamma, las Tau ($$\tau$$) de Kendall. la primera o Tau-b ($$\tau_b$$) incorpora una corrección del coeficiente Gamma en el denominador, por lo que es un estadístico **más "conservador"** que Gamma. Sólo puede usarse en **tablas cuadradas** y su expresión es la siguiente:
 
 $$ \tau_b = \frac{P-Q}{\sqrt{(P+Q+T_X)(P+Q+T_Y)}} $$
 
-A su vez, la Tau-c ($\tau_c$) no es sino una corrección de la Tau-b para tablas rectangulares. Es de mencionar que este estadístico tiende a subestimar el verdadero grado de asociación entre las variables (Ferrán,2001:64-65).
+A su vez, la Tau-c ($$\tau_c$$) no es sino una corrección de la Tau-b para tablas rectangulares. Es de mencionar que este estadístico tiende a subestimar el verdadero grado de asociación entre las variables (Ferrán,2001:64-65).
 
 $$ \tau_c = \frac{2\min(I,J)(P-Q)}{n^2 \min(I-1,J-1)} $$
 
@@ -295,7 +286,6 @@ Fuente: Adaptado de [Data Art](http://www.dataart.ca/labs/lab-13/)
 Todos estos estadísticos se pueden pedir en Stata con el comando `tab`.
 
 <pre class="Stata_sh">
-
 tabulate variable1 variable2, chi2 lrchi2 exact V gamma taub [all] [nofreq] [col] [row]
 
 // Con la opción "all" Stata calcula todos los estadísticos indicados arriba
@@ -312,7 +302,6 @@ Supongamos que se desee evaluar el comportamiento de una variable para la cual, 
 Para construir un índice, por tanto, necesitamos **varias variables** de la base de datos que sirvan para medir una **misma característica**. En el caso de Quality of Government, por ejemplo, hay tres variables de calidad de la burocracia: `qs_close, qs_impar, qs_proff`. Lo primero que debemos hacer es examinar las correlaciones entre estas variables (veremos más sobre correlación en la próxima sesión):
 
 <pre class="Stata_sh">
-
 corr qs_closed qs_impar qs_proff
 pwcorr qs_closed qs_impar qs_proff, obs sig
 
@@ -325,7 +314,6 @@ pwcorr qs_closed qs_impar qs_proff, obs sig
 Vemos que la pareja `qs_proff y qs_impar` tienen una correlación de 0.786 (más sobre esto en la siguiente sesión) y un p-value de prácticamente 0 así que se pueden combinar para crear un índice. Lo hacemos de la siguiente manera:
 
 <pre class="Stata_sh">
-
 gen bureaucracy=(qs_impar + qs_proff)/2 // Suma ponderada (una media de los valores)
 sum bureaucracy // Si queréis comprobar cómo queda
 </pre>
