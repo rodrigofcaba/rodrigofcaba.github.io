@@ -221,7 +221,7 @@ Existen distintas medidas de asociación. Para elegir una medida concreta es nec
 Estas medidas se emplean para variables nominales (cualitativas). Y es importante recordar que **sólo informan del grado de asociación existente, no de la dirección de la asociación**. En general se basan en la chi-cuadrado y sirven para corregir su valor estandarizándolo entre 0 y 1.
 Entre ellas se encuentran:
 
-- El **coeficiente Phi ($\phi$)**: es una medida del grado de asociación entre dos variables dicotómicas (2x2) basada en el estadístico $\chi^2$ (Ferrán, 2001) y que toma valores entre 0 y 1 (0 indicará ninguna asociación y valores cercanos a 1 asociación fuerte).
+- El **coeficiente Phi ($$\phi$$)**: es una medida del grado de asociación entre dos variables dicotómicas (2x2) basada en el estadístico $$\chi^2$$ (Ferrán, 2001) y que toma valores entre 0 y 1 (0 indicará ninguna asociación y valores cercanos a 1 asociación fuerte).
 - El **Coeficiente de Contingencia (C)**: Es una extensión de Phi para tablas mayores de 2x2. Toma valores en el intervalo [0,1), es decir, no alcanza el 1. Su expresión es:
 $$ C=\sqrt{\frac{\chi^2}{\chi^2+n}} $$
 
