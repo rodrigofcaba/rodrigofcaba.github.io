@@ -160,7 +160,7 @@ Resultado:
 Los números de la matriz son los coeficientes de correlación de Pearson para cada par de variables. Vemos, por ejemplo que `qs_proff` y `qs_impar` tienen un coeficiente de correlación muy alto y positivo (cercano a 1), mientras que `qs_proff` y `qs_closed` muestran un coeficiente de correlación positivo pero muy cercano a 0, es decir, una correlación muy débil. Para ver esto gráficamente podemos usar el comando `twoway` combinado con `lfit`. Así obtendremos la nube de puntos y la recta de ajuste lineal, esto es, la recta que pasa más cerca de todos los puntos a la vez de entre todas las infinitas posibles rectas representables en ese espacio bidimensional.
 
 <pre class="sh_stata">
-twoway(scatter qs_proff qs_impar) (lfit qs_proff qs_impar)
+twoway (scatter qs_proff qs_impar) (lfit qs_proff qs_impar)
 </pre>
 
 ![prof-impar](/assets/img/posts/sesión5/prof-imp.png){: width="400"}
@@ -168,7 +168,7 @@ twoway(scatter qs_proff qs_impar) (lfit qs_proff qs_impar)
 Vemos que, en efecto, los puntos se concentran mucho alrededor de la linea de ajuste.
 
 <pre class="sh_stata">
-twoway(scatter qs_proff qs_closed) (lfit qs_proff qs_closed)
+twoway (scatter qs_proff qs_closed) (lfit qs_proff qs_closed)
 </pre>
 
 ![prof-closed](/assets/img/posts/sesión5/prof-clos.png){: width="400"}
@@ -193,8 +193,8 @@ Para terminar, cabe comentar una de las más famosas frases de las ciencias soci
 
 Esta frase es archirepetida en ciencias sociales porque cuando uno empieza a estudiar el concepto de correlación tiende a confundir éste con la causalidad de las relaciones entre variables. Es decir, cuando uno encuentra una relación lineal entre dos variables, esto es, una correlación, tiende a creer que una variable es, automáticamente, la causa de la otra. Es decir, que la variable independiente causa la dependiente. Sin embargo, siento decirte que esto no es así en general y, de hecho, rara vez se puede asegurar que sea el caso. La causalidad es algo muy complejo ya desde la grecia clásica. Aristóteles fue el primer cura o, en otras palabras, el inventor de la religión y a la vez del ateísmo. Precisamente en su estudio de la causalidad propuso el famoso "motor inmóvil" como la causa incausada, el principio de todas las demás relaciones causadas del universo, inventando así el Dios de los filósofos. Este interés por la causalidad que, como se ve, está con nosotros desde los principios de la filosofía y pensamiento occidentales, se exacerbó con los empiristas ingleses (Hume, Bacon...) y llega hasta nuestros días. Pues bien, la ciencia no es un conocimiento mucho más seguro en este sentido. Por mucho método científico que apliquemos y por muchas pruebas estadísticas que usemos, abordar el problema de la causalidad no es para nada trivial. Así que, **nunca confundas la correlación con la causalidad**. La primera se da simplemente por el hecho de que dos variables se "muevan a la vez" o de una manera sincronizada, mientras que la segunda es ontológicamente mucho más difícil de comprobar. Existen formas, técnicas y procedimientos matemáticos y lógicos que sirven para tratar de discutir si la relación entre dos variables es causal o no, pero en este nivel, lo máximo que puedo pedirte es que busques relaciones entre variables, pero no necesariamente relaciones causales. Para ilustrar esto que digo, échale un ojo al siguiente vídeo y al siguiente sitio web:
 
-[Correlación no implica causalidad](https://www.youtube.com/watch?v=7AfPFlWnww8&ab_channel=SportsWagon)
+[Correlación no implica causalidad](https://www.youtube.com/watch?v=7AfPFlWnww8&ab_channel=SportsWagon){:target="_blank"}
 
-[Correlaciones espurias](https://www.tylervigen.com/spurious-correlations)
+[Correlaciones espurias](https://www.tylervigen.com/spurious-correlations){:target="_blank"}
 
 En la próxima sesión veremos, por fin, el modelo de regresión lineal simple. Hasta entonces.
