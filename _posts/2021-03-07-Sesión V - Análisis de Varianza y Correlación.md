@@ -17,6 +17,7 @@ En realidad, el ANOVA no es más que una **generalización del contraste de medi
 Recuerda que siempre que se hace un contraste de hipótesis es necesario saber de qué hipótesis nula se parte. Si recuerdas, en la prueba T se parte de la suposición de que no existe diferencia entre las medias de los grupos comparados. Es decir:
 
 $$ H_0: \mu_1-\mu_2 = 0 $$
+
 $$ H_0: \mu_1=\mu_2 $$
 
 
