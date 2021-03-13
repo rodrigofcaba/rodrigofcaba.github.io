@@ -176,7 +176,7 @@ La última parte de la salida de Stata es donde aparecen los valores de las "bet
 
 $$y=\beta_0 + \beta_1x+\epsilon$$
 
-wdi_lifexp=$$\beta_0 + \beta_1\cdot$$ ti_cpiinv $$+\epsilon$$
+<!-- wdi_lifexp=$$\beta_0 + \beta_1\cdot$$ ti_cpiinv $$+\epsilon$$ -->
 
 Si habías pensado que en el caso de la regresión no se usaba la estadística inferencial, te equivocabas. Por supuesto, nuestro objetivo no es sólo calcular una recta de ajuste a los puntos empíricos de la muestra, sino tratar de **inferir** resultados de la población de donde se ha extraído dicha muestra. Para esto es necesario hacer un contraste de hipótesis. Pues bien, en el modelo de regresión lineal simple, el contraste de hipótesis debe realizarse sobre los coeficientes de la regresión, es decir, sobre los valores de esta última parte de la salida de Stata. podemos decir que, según los resultados, $$\beta_0$$ es $$87.71001$$ y $$\beta_1$$ es $$-0.278063$$. Es decir, que la recta de regresión de la que hablamos es esta:
 
