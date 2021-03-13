@@ -110,7 +110,7 @@ Un momento, qué extraño, ¿cuanta más corrupción mayor esperanza de vida?
 
 Para saber cómo está codificada una variable, hay que visitar el [codebook](https://www.qogdata.pol.gu.se/data/codebook_std_jan21.pdf). En particular, la variable `ti_cpi` de acuerdo con QoG toma valores **pequeños** (cercanos a 0) para **niveles altos de corrupción**:
 
-![qog](/assets/img/posts/sesión6/ti_cpi.png){:width="500"}
+![qog](/assets/img/posts/sesión6/ti_cpi.png)
 
 Entonces debemos invertir primero esta variable para que mida lo que nosotros queremos:
 
