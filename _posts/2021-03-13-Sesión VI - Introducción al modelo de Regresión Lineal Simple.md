@@ -13,12 +13,12 @@ Bienvenido/a una semana más. Por fin vamos a ver la última herramienta útil p
 
 Para empezar a hablar sobre la **regresión** **lineal**, debemos comenzar a hablar de la línea de mejor ajuste. Imagina que tienes unos datos con dos variables numéricas continuas. Si representas estos datos, aparece una nube de puntos (diagrama de dispersión) ya que cada observación tiene un valor para cada una de tus variables. Estos dos valores son las coordenadas de estos puntos representados en el plano XY (recuerda lo que vimos la sesión pasada sobre covarianza y correlación). Pues bien, si tratamos de representar una línea que pase lo más cerca posible de todos los puntos a la vez, estaremos representando la **línea de mejor ajuste**. Se llama de mejor ajuste porque es la recta que mejor se ajusta a la distribución de los puntos, minimizando la distancia a ellos (a todos a la vez). Sin embargo, hay varias formas de minimizar la distancia a los puntos. En cualquier caso, esta recta se denomina recta de **regresión** y puede ser negativa (decreciente) o positiva (creciente).
 
-![reg+](/assets/img/posts/sesión6/reg+.png){: width="400"}
-![reg-](/assets/img/posts/sesión6/reg-.png){: width="400"}
+![reg+](/assets/img/posts/sesión6/reg+.png){: width="500"}
+![reg-](/assets/img/posts/sesión6/reg-.png){: width="500"}
 
 Los puntos representados son los valores de las variables dependiente e independiente, siempre se representa la variable dependiente (o explicada) en el eje y mientras que la independiente (o explicativa) se representa en el eje x:
 
-![res](/assets/img/posts/sesión6/res.png){:width="400"}
+![res](/assets/img/posts/sesión6/res.png){:width="500"}
 
 ### ¿Por qué usar una recta?
 
@@ -44,7 +44,7 @@ $$\hat{y_i}=b_o+b_1x_i$$
 
 Sabiendo que para representar una recta necesitas dos parámetros, te habrás dado cuenta de que podrías obtener infinitas rectas cambiando estos dos valores.
 
-![haz](/assets/img/posts/sesión6/haz.png){:width="400"}
+![haz](/assets/img/posts/sesión6/haz.png){:width="500"}
 
 En una nube de puntos es posible trazar muchas rectas diferentes, sin embargo, no todas se ajustan igual de bien a dicha nube de puntos. Por eso, como decíamos, se trata de encontrar la recta capaz de convertirse en la mejor representante del conjunto total de puntos, es decir, la regresión simple consiste en **buscar una línea que pase lo más cerca posible de los puntos que reflejan la distribución conjunta de dos variables** (Pinta, 2020).
 
@@ -60,7 +60,7 @@ Esto sería correcto matemáticamente, sin embargo, no es el criterio que se usa
 
 $$\min\sum_{i=1}^n(y_i-\hat{y_i})^2 = \min\sum_{i=1}^ne_i^2$$
 
-![ols](/assets/img/posts/sesión6/ols.png){:width="400"}
+![ols](/assets/img/posts/sesión6/ols.png){:width="500"}
 
 ## El modelo de Regresión Lineal Simple
 
@@ -102,7 +102,7 @@ twoway (scatter wdi_lifexp ti_cpi)
 
 Resultado:
 
-![scat1](/assets/img/posts/sesión6/scat1.png){:width="400"}
+![scat1](/assets/img/posts/sesión6/scat1.png){:width="500"}
 
 Un momento, qué extraño, ¿cuanta más corrupción mayor esperanza de vida?
 
@@ -110,7 +110,7 @@ Un momento, qué extraño, ¿cuanta más corrupción mayor esperanza de vida?
 
 Para saber cómo está codificada una variable, hay que visitar el [codebook](https://www.qogdata.pol.gu.se/data/codebook_std_jan21.pdf). En particular, la variable `ti_cpi` de acuerdo con QoG toma valores **pequeños** (cercanos a 0) para **niveles altos de corrupción**:
 
-![qog](/assets/img/posts/sesión6/ti_cpi.png)
+![qog](/assets/img/posts/sesión6/ti_cpi.png){:width="500"}
 
 Entonces debemos invertir primero esta variable para que mida lo que nosotros queremos:
 
@@ -123,7 +123,7 @@ gen ti_cpiinv = 100 - ti_cpi
 twoway (scatter wdi_lifexp ti_cpiinv)
 </pre>
 
-![scat2](/assets/img/posts/sesión6/scat2.png){:width="400"}
+![scat2](/assets/img/posts/sesión6/scat2.png){:width="500"}
 
 Parece a simple vista que existe una relación más o menos lineal y negativa entre las variables. Veamos qué dice el modelo de regresión lienal:
 
@@ -176,11 +176,11 @@ La última parte de la salida de Stata es donde aparecen los valores de las "bet
 
 $$y=\beta_0 + \beta_1x+\epsilon$$
 
-<!-- wdi_lifexp=$$\beta_0 + \beta_1\cdot$$ ti_cpiinv $$+\epsilon$$ -->
+wdi_lifexp=$$\beta_0 + \beta_1\cdot$$ ti_cpiinv $$+\epsilon$$
 
 Si habías pensado que en el caso de la regresión no se usaba la estadística inferencial, te equivocabas. Por supuesto, nuestro objetivo no es sólo calcular una recta de ajuste a los puntos empíricos de la muestra, sino tratar de **inferir** resultados de la población de donde se ha extraído dicha muestra. Para esto es necesario hacer un contraste de hipótesis. Pues bien, en el modelo de regresión lineal simple, el contraste de hipótesis debe realizarse sobre los coeficientes de la regresión, es decir, sobre los valores de esta última parte de la salida de Stata. podemos decir que, según los resultados, $$\beta_0$$ es $$87.71001$$ y $$\beta_1$$ es $$-0.278063$$. Es decir, que la recta de regresión de la que hablamos es esta:
 
-![recta](/assets/img/posts/sesión6/recta%20reg.png){:width="400"}
+![recta](/assets/img/posts/sesión6/recta%20reg.png){:width="500"}
 
 Si quieres superponer la nube de puntos y la línea, ya sabes cómo hacerlo:
 
@@ -190,7 +190,7 @@ twoway (scatter wdi_lifexp ti_cpiinv) (lfit wdi_lifexp ti_cpiinv)
 
 Resultado:
 
-![recta2](/assets/img/posts/sesión6/reg2.png){:width="400"}
+![recta2](/assets/img/posts/sesión6/reg2.png){:width="500"}
 
 
 Ahora sólo falta saber si estos valores son estadísticamente significativos, es decir, si se puede asumir que no son debidos al azar. Para eso, es necesario un contraste de hipótesis para cada coeficiente. En la tabla ves además del error estándar, el valor del estadístico T y su p-value asociado. Una vez más, el estadístico T nos ayuda a contrastar la hipótesis nula. En este caso, la hipótesis nula es que el coeficiente es 0 (es decir, que no existe ningún efecto de X sobre Y). Si el valor del estadístico T es grande en valor absoluto (o el p-value pequeño), podremos rechazar la hipótesis nula y concluiremos que el efecto de x sobre y existe y es significativamente distinto de 0. De hecho, el efecto lo mide el propio coeficiente. Recuerda que la interpretación es la siguiente:
@@ -243,7 +243,7 @@ rvfplot
 
 Resultado:
 
-![residuals](/assets/img/posts/sesión6/residuals.png){width="400"}
+![residuals](/assets/img/posts/sesión6/residuals.png){width="500"}
 
 Como ves, aunque se puede ver cómo se van concentrando en torno a 0 hacia el final, no se observa un patrón claro en los residuos, **esto nos indica independencia**.
 
